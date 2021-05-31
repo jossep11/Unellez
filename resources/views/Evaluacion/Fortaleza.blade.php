@@ -8,37 +8,16 @@
 
 <div class="col-md-12">
 
-
-    <h1>Fortaleza</h1>
-
-
-
     <div class="card">
-
-
-        <form action="">
-
-            <div class="block">
-
-                <div class="textarea">
-                    <textarea name="" id="" placeholder="Agregar fortaleza"></textarea>
-                </div>
-
-                <div class="botones">
-                    <a href="" class="btn1">Limpiar</a>
-                    <button type="submit" class="btn1">Agregar</button>
-                </div>
-            </div>
-        </form>
-
         <div class="card-header">
+            <div class="barra">
+            <h1>Fortalezas</h1>
+            <a href="#" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-plus"> Añadir nuevo</i></a>
 
-            <h4 class="card-title">Basic</h4>
-
-
-
-
+            </div>
         </div>
+
+
         <div class="card-body">
             <div class="table-responsive">
                 <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius">
@@ -60,7 +39,7 @@
                     <tbody>
                         <tr>
                             <td>Tiger Nixon</td>
-                            <td>System Architect</td>
+                            <td>Systemdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd ewqeqw eqw eqwe qwe qwe qwe qwe qwe qewqeqw eqw eqwe qwe qwe qwe qwe qwe qewqeqw eqw eqwe qwe qwe qwe qwe qwe qwe Architect</td>
                             <td>Edinburgh</td>
 
                         </tr>
