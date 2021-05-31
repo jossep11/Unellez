@@ -3,49 +3,35 @@
     box-sizing: inherit;
 }
 
-
-
-.botones {
-    margin-left: 1rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.botones a {
-    text-decoration: none;
-    color: white;
-}
-
-.btn1 {
-    background-color: rgb(186, 28, 248);
-    padding: 10px;
-    border: none;
-    border-radius: 0.8rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-}
-
-.card{
+.card {
+    /*----margin from top----*/
     margin-top: 2rem;
-
 }
 
-.barra{
+/*----button and label division----*/
+.barra {
     display: flex;
     justify-content: space-between;
-
 }
 
-.barra a{    
-    display: flex;  
+/*----button "add" fetures etc   ----*/
+.barra a {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     text-decoration: none;
-    background-color: #26a946;
+    background-color: #28a745;
     padding: 0 1.8rem;
     border-radius: 1.4rem;
     color: white;
+}
+
+/*----text area style ----*/
+.campo textarea {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    height: 10rem;
+    border: none;
+    border-radius: 0.5rem;
+    display: block;
+    width: 100%;
 }
