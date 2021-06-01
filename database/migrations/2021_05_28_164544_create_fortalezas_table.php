@@ -1,5 +1,6 @@
 <?php
 
+use Egulias\EmailValidator\Warning\Comment;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,9 @@ class CreateFortalezasTable extends Migration
     {
         Schema::create('fortalezas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->longText('description');
+            $table->timestamps(); 
+            
         });
     }
 

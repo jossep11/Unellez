@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Fortaleza;
 
 class FortalezaController extends Controller
 {
@@ -13,7 +14,8 @@ class FortalezaController extends Controller
      */
     public function index()
     {
-        return view('Evaluacion.Fortaleza');
+        $fortalezas =Fortaleza::all();
+        return view('Evaluacion.Fortaleza')->with('fortalezas', $fortalezas);
         //
     }
 
@@ -24,7 +26,8 @@ class FortalezaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Evaluacion.Fortalezas.create');
+
     }
 
     /**
@@ -35,7 +38,11 @@ class FortalezaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* Data insertion to the database*/ 
+        $fortalezas = new Fortaleza();
+        $fortalezas->description=$request->get('description');
+        $fortalezas->save();
+        return redirect('/fortaleza');
     }
 
     /**

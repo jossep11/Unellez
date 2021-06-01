@@ -11,13 +11,13 @@
         <div class="card-header">
             <div class="barra">
             <h1>Fortalezas</h1>    
-<!-- Button trigger modal -->
+            <!-- Button trigger modal -->
             <a href="#" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-plus"> Añadir nuevo</i></a>
             
             </div>
         </div>
 
-<!-- Modal -->
+            <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -29,17 +29,21 @@
                         </div>
                         <div class="modal-body">
                     
-                            <form>
+                            <form method="POST">
+                                @csrf
                                 <div class="campo">
-                                  <textarea class="form-control1" id="message-text" autofocus></textarea>
+                                  <textarea class="form-control1" id="message-text" name="description" autofocus></textarea>
                                 </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+
                             </form>
                         
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -73,6 +77,28 @@
                             <td>Edinburgh</td>
 
                         </tr>
+                   {{-- Data extraction from database --}}
+                        @foreach($fortalezas as $fortaleza)
+                        <tr>
+                            <td> {{$fortaleza->id}}</td>
+                            <td> {{$fortaleza->description}}</td>
+                
+                {{-- example to delete etc
+                    <td>
+                                <form action="{{route ('articulos.destroy', $articulo->id)}}" method="POST">
+                                    <a href="/articulos/{{$articulo->id}}/edit" class="btn btn-info">Editar</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                </form>
+                      </td>
+               
+                --}}
+                            
+                        </tr>
+                
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>
