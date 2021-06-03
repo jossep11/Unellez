@@ -76,7 +76,12 @@ class FortalezaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fortaleza = Fortaleza::find($id);
+        $fortaleza->description=$request->get('description');
+        $fortaleza->save();
+
+        return redirect('/fortaleza');
+
     }
 
     /**
@@ -87,6 +92,8 @@ class FortalezaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fortaleza = Fortaleza::find($id);
+        $fortaleza->delete();
+        return redirect('/fortaleza');
     }
 }
