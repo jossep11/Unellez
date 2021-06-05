@@ -337,6 +337,13 @@
                     </div>
 
                     <ul class="nav nav-primary">
+                        <li class="nav-item active">
+                            <a  href="#dashboard" >
+                                <i class="fas fa-home"></i>
+                                <p>Proceso Analitico</p>
+                            </a>
+                       
+                        </li>
 
                         <li class="nav-section">
                             <span class="sidebar-mini-icon">
@@ -345,97 +352,56 @@
                             <h4 class="text-section">Components</h4>
                         </li>
 
-                        @role('S_Admin|viewer')
-                        <li class="nav-item">
-                            <a data-toggle="collapse" href="#base">
-                                <i class="fas fa-layer-group"></i>
-                                <p>Base</p>
 
-                            </a>
-                            <div class="collapse" id="base">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="components/avatars.html">
-                                            <span class="sub-item">Avatars</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                        {{-- @role('S_Admin|viewer') --}}
+                      
+                    
+                    
+             
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#sidebarLayouts">
+                            <i class="fas fa-minus-circle"></i>
+                            <p>Debilidades</p>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#sidebarLayouts">
+                            <i class="fas fa-magic"></i>
+                            <p>Oportunidades</p>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#sidebarLayouts">
+                            <i class="fas fa-dumbbell"></i>
+                            <p>Fortalezas</p>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#sidebarLayouts">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Amenazas</p>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#sidebarLayouts">
+                            <i class="fas fa-envelope"></i>
+                            <p>Bandeja de entrada</p>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
 
 
+                        {{-- @endrole --}}
 
-                        <li class="nav-item">
-                            <a data-toggle="collapse" href="#sidebarLayouts">
-                                <i class="fas fa-th-list"></i>
-                                <p>Sidebar Layouts</p>
-                                <span class="caret"></span>
-                            </a>
-
-                        <li class="nav-item">
-                            <a href="widgets.html">
-                                <i class="fas fa-desktop"></i>
-                                <p>Widgets</p>
-                                <span class="badge badge-success">4</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a data-toggle="collapse" href="#submenu">
-                                <i class="fas fa-bars"></i>
-                                <p>Menu Levels</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="submenu">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a data-toggle="collapse" href="#subnav1">
-                                            <span class="sub-item">Level 1</span>
-                                            <span class="caret"></span>
-                                        </a>
-                                        <div class="collapse" id="subnav1">
-                                            <ul class="nav nav-collapse subnav">
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="sub-item">Level 2</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="sub-item">Level 2</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="collapse" href="#subnav2">
-                                            <span class="sub-item">Level 1</span>
-                                            <span class="caret"></span>
-                                        </a>
-                                        <div class="collapse" id="subnav2">
-                                            <ul class="nav nav-collapse subnav">
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="sub-item">Level 2</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="sub-item">Level 1</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        @endrole
-
-                        <li class="mx-4 mt-2">
-                            <a href="http://themekita.com/atlantis-bootstrap-dashboard.html" class="btn btn-primary btn-block"><span class="btn-label mr-2"> <i class="fa fa-heart"></i> </span>Buy Pro</a>
-                        </li>
+          
 
                     </ul>
                 </div>
@@ -454,6 +420,8 @@
     </div>
 
     <!--   Core JS Files   -->
+  
+
     <script src="{{asset('js/core/jquery.3.2.1.min.js')}}"></script>
     <script src="{{asset('js/core/popper.min.js')}}"></script>
     <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
@@ -481,10 +449,7 @@
     <!-- Bootstrap Notify -->
     <script src="{{asset('js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 
-    <!-- jQuery Vector Maps -->
-    <script src="{{asset('js/plugin/jqvmap/jquery.vmap.min.js')}}"></script>
-    <script src="{{asset('/js/plugin/jqvmap/maps/jquery.vmap.world.js')}}"></script>
-
+   
     <!-- Sweet Alert -->
     <script src="{{asset('js/plugin/sweetalert/sweetalert.min.js')}}"></script>
 
@@ -494,11 +459,17 @@
 
     <script>
         $(document).ready(function() {
-            $('#basic-datatables').DataTable({});
+            $('#basic-datatables').DataTable({
+                language: {
+                    search: "Buscar:"
+                }
+
+            });
+           
+       
 
             $('#multi-filter-select').DataTable({
-                "pageLength": 5,
-                initComplete: function() {
+                    initComplete: function() {
                     this.api().columns().every(function() {
                         var column = this;
                         var select = $('<select class="form-control"><option value=""></option></select>')
@@ -521,25 +492,14 @@
             });
 
             // Add Row
-            $('#add-row').DataTable({
-                "pageLength": 5,
-            });
 
-            var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
 
-            $('#addRowButton').click(function() {
-                $('#add-row').dataTable().fnAddData([
-                    $("#addName").val(),
-                    $("#addPosition").val(),
-                    $("#addOffice").val(),
-                    action
-                ]);
-                $('#addRowModal').modal('hide');
 
-            });
         });
 
     </script>
+
+<script src="{{asset('js/Jp.js')}}"></script>
 
 
 </body>
