@@ -67,7 +67,7 @@
                         @foreach($fortalezas as $fortaleza)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="nro_item" class="circulo">  {{$fortaleza->id}} </div>
+                              <div id="nro_item" class="circulo"> </div>
                             </td>
                             
                             <td> {{$fortaleza->description}}</td>
