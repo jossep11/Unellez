@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1>Fortalezas</h1>    
+            <h1 id="IdentificadorIndex">Fortalezas</h1>    
             <!-- Button trigger modal -->
             <a href="#" data-toggle="modal" data-target="#modal1"> <i class="fas fa-plus"> Añadir nuevo</i></a>
             
@@ -89,35 +89,35 @@
 
 <!-- Modal data insertion  -->
 {{-- to pass it the item that's gonna be changed have to send $fortaleza-> --}}
-                            <div class="modal fade" id="editFortaleza{{$fortaleza->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            {{-- with fortaleza.update I indicate where it's gonna be the change Jp--}}
-                                            {{-- $fortaleza is the reference the item that it's gonna be changed Jp--}}            
-                                            <form action="{{route('fortaleza.update', $fortaleza)}}"  method="POST">
-                                                {{ csrf_field() }} {{   method_field('PUT')   }}
+<div class="modal fade" id="editFortaleza{{$fortaleza->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            {{-- with fortaleza.update I indicate where it's gonna be the change Jp--}}
+            {{-- $fortaleza is the reference the item that it's gonna be changed Jp--}}            
+            <form action="{{route('fortaleza.update', $fortaleza)}}"  method="POST">
+                {{ csrf_field() }} {{   method_field('PUT')   }}
 
-                                                <div class="campo">
-                                                <textarea class="form-control1" id="message-text" name="description" >{{$fortaleza->description}}</textarea>
-                                                </div>
+                <div class="campo">
+                <textarea class="form-control1" id="message-text" name="description" >{{$fortaleza->description}}</textarea>
+                </div>
 
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="submit"{{$fortaleza->id}} class="btn btn-primary">Save changes</button>
-                                                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit"{{$fortaleza->id}} class="btn btn-primary">Save changes</button>
+                </div>
 
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 
                         </tr>
                         @endforeach

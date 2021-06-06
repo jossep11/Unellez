@@ -359,7 +359,7 @@
                     
              
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#sidebarLayouts">
+                        <a href="/debilidades">
                             <i class="fas fa-minus-circle"></i>
                             <p>Debilidades</p>
                             <span class="caret"></span>
@@ -367,7 +367,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#sidebarLayouts">
+                        <a href="/oportunidades">
                             <i class="fas fa-magic"></i>
                             <p>Oportunidades</p>
                             <span class="caret"></span>
@@ -375,7 +375,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#sidebarLayouts">
+                        <a href="/fortaleza">
                             <i class="fas fa-dumbbell"></i>
                             <p>Fortalezas</p>
                             <span class="caret"></span>
@@ -383,7 +383,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#sidebarLayouts">
+                        <a href="/amenazas">
                             <i class="fas fa-exclamation-triangle"></i>
                             <p>Amenazas</p>
                             <span class="caret"></span>
@@ -391,7 +391,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#sidebarLayouts">
+                        <a href="#sidebarLayouts">
                             <i class="fas fa-envelope"></i>
                             <p>Bandeja de entrada</p>
                             <span class="caret"></span>
