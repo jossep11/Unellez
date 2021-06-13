@@ -24,6 +24,11 @@
     padding: 0 1.8rem;
     border-radius: 1.4rem;
     color: white;
+   
+}
+
+.barra .btn_general_pdf {
+    background-color: #f25961;
 }
 
 /*----text area style ----*/
@@ -49,8 +54,27 @@
     font-weight: bold;
     font-size: large;
     font-family: sans-serif;
+    margin-left: .6rem;
 }
 
-.nro_item_center {
-    text-align: center;
+
+.ProcesoAnalitico {
+    line-height: 18px;
+}
+
+.card-body{
+    background-color: #ffffff;
+}
+
+.td_flex{
+    
+    display: flex;
+   
+    align-items: center;
+    
+        
+}
+
+.MatrizDafoWidth{
+   width: 100%;
 }

@@ -27,6 +27,7 @@
     @yield('css')
     <link rel="stylesheet" href="{{asset ('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset ('css/atlantis.min.css') }}">
+    <link rel="stylesheet" href="{{asset ('css/atlantis.css') }}">
     <link rel="stylesheet" href="{{asset ('css/styles.css') }}">
 
     <title>Test1 </title>
@@ -338,9 +339,9 @@
 
                     <ul class="nav nav-primary">
                         <li class="nav-item active">
-                            <a  href="#dashboard" >
+                            <a class="text-align-center" href="" >
                                 <i class="fas fa-home"></i>
-                                <p>Proceso Analitico</p>
+                            <p class="ProcesoAnalitico">Proceso Analitico <br> Organizacional</p>
                             </a>
                        
                         </li>
@@ -354,18 +355,17 @@
 
 
                         {{-- @role('S_Admin|viewer') --}}
-                      
-                    
-                    
-             
-                    <li class="nav-item">
+                                                  
+                    <li class="nav-item ">
                         <a href="/debilidades">
                             <i class="fas fa-minus-circle"></i>
                             <p>Debilidades</p>
                             <span class="caret"></span>
                         </a>
+
                     </li>
 
+             
                     <li class="nav-item">
                         <a href="/oportunidades">
                             <i class="fas fa-magic"></i>
@@ -394,6 +394,14 @@
                         <a href="#sidebarLayouts">
                             <i class="fas fa-envelope"></i>
                             <p>Bandeja de entrada</p>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/matrizdafo">
+                            <i class="far fa-chart-bar"></i>
+                            <p>MatrizDAFO</p>
                             <span class="caret"></span>
                         </a>
                     </li>
@@ -456,50 +464,7 @@
     <!-- Atlantis JS -->
     <script src="{{asset('js/atlantis.js')}}"></script>
 
-
-    <script>
-        $(document).ready(function() {
-            $('#basic-datatables').DataTable({
-                language: {
-                    search: "Buscar:"
-                }
-
-            });
-           
-       
-
-            $('#multi-filter-select').DataTable({
-                    initComplete: function() {
-                    this.api().columns().every(function() {
-                        var column = this;
-                        var select = $('<select class="form-control"><option value=""></option></select>')
-                            .appendTo($(column.footer()).empty())
-                            .on('change', function() {
-                                var val = $.fn.dataTable.util.escapeRegex(
-                                    $(this).val()
-                                );
-
-                                column
-                                    .search(val ? '^' + val + '$' : '', true, false)
-                                    .draw();
-                            });
-
-                        column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
-                        });
-                    });
-                }
-            });
-
-            // Add Row
-
-
-
-        });
-
-    </script>
-
-<script src="{{asset('js/Jp.js')}}"></script>
+    <script src="{{asset('js/Jp.js')}}"></script>
 
 
 </body>

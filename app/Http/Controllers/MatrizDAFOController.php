@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\debilidades;
+use App\Models\Fortaleza;
+use App\Models\amenazas;
+use App\Models\oportunidades;
 
-class DebilidadesController extends Controller
+class MatrizDAFOController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +18,17 @@ class DebilidadesController extends Controller
      */
     public function index()
     {
-        
         $debilidades =debilidades::all();
-        return view('Evaluacion.Debilidades')->with('debilidades', $debilidades);
+        $fortalezas =Fortaleza::all();
+        $amenazas = amenazas::all();
+        $oportunidades= oportunidades::all();
+
+        return view('Evaluacion.UsuariosEv.MatrizDAFO')->with('fortalezas', $fortalezas)
+        ->with('debilidades', $debilidades)
+        ->with('oportunidades', $oportunidades)
+        ->with('amenazas', $amenazas);
+
+       
     }
 
     /**
@@ -26,7 +38,7 @@ class DebilidadesController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Debilidades.create');
+        //
     }
 
     /**
@@ -37,10 +49,7 @@ class DebilidadesController extends Controller
      */
     public function store(Request $request)
     {
-        $debilidades = new debilidades();
-        $debilidades->description=$request->get('description');
-        $debilidades->save();
-        return redirect('/debilidades');
+        //
     }
 
     /**
@@ -74,11 +83,7 @@ class DebilidadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $debilidades = debilidades::find($id);
-        $debilidades->description=$request->get('description');
-        $debilidades->save();
-
-        return redirect('/debilidades');
+        //
     }
 
     /**
@@ -89,8 +94,6 @@ class DebilidadesController extends Controller
      */
     public function destroy($id)
     {
-        $debilidades = debilidades::find($id);
-        $debilidades->delete();
-        return redirect('/debilidades');
+        //
     }
 }

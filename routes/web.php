@@ -12,6 +12,8 @@ Route::resource('fortaleza', 'App\Http\Controllers\FortalezaController');
 Route::resource('oportunidades', 'App\Http\Controllers\OportunidadesController');
 Route::resource('amenazas', 'App\Http\Controllers\AmezanasController');
 Route::resource('debilidades', 'App\Http\Controllers\DebilidadesController');
+Route::resource('matrizdafo', 'App\Http\Controllers\MatrizDAFOController');
+
 
 
 Route::view('/', 'welcome')->middleware('guest');
