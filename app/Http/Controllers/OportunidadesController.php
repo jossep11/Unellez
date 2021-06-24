@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Fortaleza;
+use App\Models\oportunidades;
 
-class FortalezaController extends Controller
+class OportunidadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class FortalezaController extends Controller
      */
     public function index()
     {
-        $fortalezas =Fortaleza::all();
-        return view('Evaluacion.Fortaleza')->with('fortalezas', $fortalezas);
-        //
+        $oportunidades =oportunidades::all();
+        return view('Evaluacion.Oportunidades')->with('oportunidades', $oportunidades);
     }
 
     /**
@@ -26,8 +25,7 @@ class FortalezaController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Fortalezas.create');
-
+        return view('Evaluacion.Oportunidades.create');
     }
 
     /**
@@ -38,11 +36,10 @@ class FortalezaController extends Controller
      */
     public function store(Request $request)
     {
-        /* Data insertion to the database*/ 
-        $fortalezas = new Fortaleza();
-        $fortalezas->description=$request->get('description');
-        $fortalezas->save();
-        return redirect('/fortaleza');
+        $oportunidades = new oportunidades();
+        $oportunidades->description=$request->get('description');
+        $oportunidades->save();
+        return redirect('/oportunidades');
     }
 
     /**
@@ -76,12 +73,11 @@ class FortalezaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->description=$request->get('description');
-        $fortaleza->save();
+        $oportunidades = oportunidades::find($id);
+        $oportunidades->description=$request->get('description');
+        $oportunidades->save();
 
-        return redirect('/fortaleza');
-
+        return redirect('/oportunidades');
     }
 
     /**
@@ -92,8 +88,8 @@ class FortalezaController extends Controller
      */
     public function destroy($id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->delete();
-        return redirect('/fortaleza');
+        $oportunidades = oportunidades::find($id);
+        $oportunidades->delete();
+        return redirect('/oportunidades');
     }
 }

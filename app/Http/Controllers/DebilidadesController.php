@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Fortaleza;
+use App\Models\debilidades;
 
-class FortalezaController extends Controller
+class DebilidadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class FortalezaController extends Controller
      */
     public function index()
     {
-        $fortalezas =Fortaleza::all();
-        return view('Evaluacion.Fortaleza')->with('fortalezas', $fortalezas);
-        //
+        
+        $debilidades =debilidades::all();
+        return view('Evaluacion.Debilidades')->with('debilidades', $debilidades);
     }
 
     /**
@@ -26,8 +26,7 @@ class FortalezaController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Fortalezas.create');
-
+        return view('Evaluacion.Debilidades.create');
     }
 
     /**
@@ -38,11 +37,10 @@ class FortalezaController extends Controller
      */
     public function store(Request $request)
     {
-        /* Data insertion to the database*/ 
-        $fortalezas = new Fortaleza();
-        $fortalezas->description=$request->get('description');
-        $fortalezas->save();
-        return redirect('/fortaleza');
+        $debilidades = new debilidades();
+        $debilidades->description=$request->get('description');
+        $debilidades->save();
+        return redirect('/debilidades');
     }
 
     /**
@@ -76,12 +74,11 @@ class FortalezaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->description=$request->get('description');
-        $fortaleza->save();
+        $debilidades = debilidades::find($id);
+        $debilidades->description=$request->get('description');
+        $debilidades->save();
 
-        return redirect('/fortaleza');
-
+        return redirect('/debilidades');
     }
 
     /**
@@ -92,8 +89,8 @@ class FortalezaController extends Controller
      */
     public function destroy($id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->delete();
-        return redirect('/fortaleza');
+        $debilidades = debilidades::find($id);
+        $debilidades->delete();
+        return redirect('/debilidades');
     }
 }

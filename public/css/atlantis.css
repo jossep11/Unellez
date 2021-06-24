@@ -1,3 +1,4 @@
+
 /*!
 
  =========================================================
@@ -2542,7 +2543,7 @@ label {
       position: relative; }
       .card-pricing2 .pricing-content li.disable:before, .card-pricing2 .pricing-content li:before {
         content: "\f00c";
-        font-family: 'Font Awesome 5 Solid';
+        font-family: 'Font Awesome 5 Free';
         font-weight: 900;
         width: 20px;
         height: 20px;
@@ -2896,7 +2897,7 @@ label {
       margin-left: auto; }
       .accordion .card > .card-header > .span-mode:before {
         content: "\f068" !important;
-        font-family: 'Font Awesome 5 Solid';
+        font-family: 'Font Awesome 5 Free';
         font-weight: 900;
         font-size: 16px; }
     .accordion .card > .card-header.collapsed > .span-mode:before {
@@ -3084,7 +3085,7 @@ label {
   line-height: 0.8;
   color: #1572E8;
   transition: all .2s;
-  font-family: 'Font Awesome 5 Solid'; }
+  font-family: 'Font Awesome 5 Free'; }
 .form-check [type="checkbox"]:not(:checked) + .form-check-sign:after {
   opacity: 0;
   transform: scale(0); }
