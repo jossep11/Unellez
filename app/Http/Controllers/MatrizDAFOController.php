@@ -8,6 +8,8 @@ use App\Models\debilidades;
 use App\Models\Fortaleza;
 use App\Models\amenazas;
 use App\Models\oportunidades;
+use App\Models\EstrategiaFa;
+
 
 class MatrizDAFOController extends Controller
 {
@@ -49,7 +51,13 @@ class MatrizDAFOController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $EstrategiaFa = new EstrategiaFa();
+        $EstrategiaFa->Fortalezas=$request->get('FA_Fortaleza');
+        $EstrategiaFa->Amenazas=$request->get('FA_Amenaza');
+        $EstrategiaFa->Description=$request->get('Description');
+        $EstrategiaFa->save();
+       // return response()->json($EstrategiaFa);
+        return redirect('/matrizdafo');
     }
 
     /**

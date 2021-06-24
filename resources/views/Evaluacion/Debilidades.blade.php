@@ -58,6 +58,7 @@
                             <th>Nº item</th>
                             <th>Descripcion</th>
                             <th>Acciones</th>
+                            
                         </tr>
                     </thead>
     
@@ -71,7 +72,6 @@
                             </td>
                             
                             <td> {{$debilidad->description}}</td>
-
                             <td>
                                 <form action="{{route ('debilidades.destroy', $debilidad->id)}}" method="POST">
                             	<div class="form-button-action">    
@@ -87,7 +87,7 @@
                 
                             </td>
 
-            <!-- Modal data insertion  -->
+            <!-- Modal data insertion edit  -->
             {{-- to pass it the item that's gonna be changed have to send $debilidad-> --}}
             <div class="modal fade" id="editDebilidad{{$debilidad->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

@@ -50,10 +50,11 @@
                                       @foreach ($debilidades as $debilidad)
                                       <tr>
                                        
-                                        <td class="td_flex" id="tr_">
-                                        
-                                        <input class="check" type="checkbox"> 
-                                        <div id="nro_item" class="circulo">    </div>
+                                        <td  id="tr_">
+                                            <div class="td_flex">
+                                                <input class="check" type="checkbox"> 
+                                                <div id="nro_item" class="circulo"></div>
+                                            </div>
                                         </td>
 
                                         <td> {{$debilidad->description}}</td>
@@ -102,10 +103,11 @@
                                       @foreach ($oportunidades as $oportunidad)
                                       <tr>
                                        
-                                        <td class="td_flex" id="tr_">
-                                        
-                                        <input class="check" type="checkbox"> 
-                                        <div id="nro_item" class="circulo">    </div>
+                                        <td  id="tr_">
+                                        <div class="td_flex">
+                                            <input class="check" type="checkbox"> 
+                                            <div id="nro_item" class="circulo"></div>
+                                        </div>
                                         </td>
 
                                         <td> {{$oportunidad->description}}</td>
@@ -152,10 +154,11 @@
                               @foreach ($fortalezas as $fortaleza)
                               <tr>
                                
-                                <td class="td_flex" id="tr_">
-                                
-                                <input class="check" type="checkbox"> 
-                                <div id="nro_item" class="circulo">    </div>
+                                <td  id="tr_">
+                                    <div class="td_flex">
+                                        <input class="check CheckboxFortaleza" type="checkbox"> 
+                                        <div id="nro_item" class="circulo"></div>
+                                    </div>
                                 </td>
 
                                 <td> {{$fortaleza->description}}</td>
@@ -170,7 +173,9 @@
                         </div>
                     </div>
                 </div>
-
+                
+                {{-- Amenazas --}}
+                
                 <div class="card">
                     <div class="card-header collapsed" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                         <div class="span-icon">
@@ -196,15 +201,16 @@
                                 <tbody>
                                 {{-- Data extraction from database --}}
                               @foreach ($amenazas as $amenaza)
-                              <tr>
+                              <tr class="tr_amenaza">
                                
-                                <td class="td_flex" id="tr_">
-                                
-                                <input class="check" type="checkbox"> 
-                                <div id="nro_item" class="circulo">    </div>
+                                <td  id="tr_">
+                                    <div class="td_flex">
+                                        <input class="check CheckboxAmenaza" type="checkbox"> 
+                                        <div id="nro_item" class="circulo"></div>
+                                    </div>
                                 </td>
 
-                                <td> {{$amenaza->description}}</td>
+                                <td class="Colum100"> {{$amenaza->description}}</td>
                                 
                               </tr>
                                   
@@ -217,23 +223,12 @@
                     </div>
                 </div>
 
-
-                <div class="card">
-                    <div class="card-header collapsed" id="headingFive" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
-                        <div class="span-icon">
-                            <i class="fas fa-chess-knight"></i>
-                        </div>
-                        <div class="span-title">
-                          Estrategia FA
-                        </div>
-                        <div class="span-mode"></div>
-                    </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
+                {{-- Fa --}}
+                
+                @include('Evaluacion.UsuariosEv.Fa')
+               
+                
+              
 
                 <div class="card">
                     <div class="card-header collapsed" id="headingSix" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">

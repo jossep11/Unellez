@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MatrizDAFOController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -7,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/students', [MatrizDAFOController::class, 'index']);
+Route::post('/addstudents', 'MatrizDAFOController@store')->name('addstudents');
 
 Route::resource('fortaleza', 'App\Http\Controllers\FortalezaController');
 Route::resource('oportunidades', 'App\Http\Controllers\OportunidadesController');
