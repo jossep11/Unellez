@@ -1,11 +1,10 @@
 <?php
 
-use Egulias\EmailValidator\Warning\Comment;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFortalezasTable extends Migration
+class CreateEstrategiaFasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +13,12 @@ class CreateFortalezasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fortalezas', function (Blueprint $table) {
+        Schema::create('estrategia_fas', function (Blueprint $table) {
             $table->id();
-            $table->longText('description');
-            $table->timestamps(); 
-            
+            $table->string('Fortalezas');
+            $table->string('Amenazas');
+            $table->string('Description');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateFortalezasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fortalezas');
+        Schema::dropIfExists('estrategia_fas');
     }
 }

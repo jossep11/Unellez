@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Fortaleza;
 
-class FortalezaController extends Controller
+use Illuminate\Http\Request;
+use App\Models\debilidades;
+use App\Models\Fortaleza;
+use App\Models\amenazas;
+use App\Models\oportunidades;
+use App\Models\EstrategiaFa;
+
+
+class MatrizDAFOController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +20,17 @@ class FortalezaController extends Controller
      */
     public function index()
     {
+        $debilidades =debilidades::all();
         $fortalezas =Fortaleza::all();
-        return view('Evaluacion.Fortaleza')->with('fortalezas', $fortalezas);
-        //
+        $amenazas = amenazas::all();
+        $oportunidades= oportunidades::all();
+
+        return view('Evaluacion.UsuariosEv.MatrizDAFO')->with('fortalezas', $fortalezas)
+        ->with('debilidades', $debilidades)
+        ->with('oportunidades', $oportunidades)
+        ->with('amenazas', $amenazas);
+
+       
     }
 
     /**
@@ -26,8 +40,7 @@ class FortalezaController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Fortalezas.create');
-
+        //
     }
 
     /**
@@ -38,11 +51,13 @@ class FortalezaController extends Controller
      */
     public function store(Request $request)
     {
-        /* Data insertion to the database*/ 
-        $fortalezas = new Fortaleza();
-        $fortalezas->description=$request->get('description');
-        $fortalezas->save();
-        return redirect('/fortaleza');
+        $EstrategiaFa = new EstrategiaFa();
+        $EstrategiaFa->Fortalezas=$request->get('FA_Fortaleza');
+        $EstrategiaFa->Amenazas=$request->get('FA_Amenaza');
+        $EstrategiaFa->Description=$request->get('Description');
+        $EstrategiaFa->save();
+       // return response()->json($EstrategiaFa);
+        return redirect('/matrizdafo');
     }
 
     /**
@@ -76,12 +91,7 @@ class FortalezaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->description=$request->get('description');
-        $fortaleza->save();
-
-        return redirect('/fortaleza');
-
+        //
     }
 
     /**
@@ -92,8 +102,6 @@ class FortalezaController extends Controller
      */
     public function destroy($id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->delete();
-        return redirect('/fortaleza');
+        //
     }
 }

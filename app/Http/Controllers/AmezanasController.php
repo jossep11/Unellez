@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Fortaleza;
+use App\Models\amenazas;
 
-class FortalezaController extends Controller
+class AmezanasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class FortalezaController extends Controller
      */
     public function index()
     {
-        $fortalezas =Fortaleza::all();
-        return view('Evaluacion.Fortaleza')->with('fortalezas', $fortalezas);
-        //
+        $amenazas = amenazas::all();
+        return view('Evaluacion.Amenaza')->with('amenazas', $amenazas);
     }
 
     /**
@@ -27,7 +26,6 @@ class FortalezaController extends Controller
     public function create()
     {
         return view('Evaluacion.Fortalezas.create');
-
     }
 
     /**
@@ -38,11 +36,10 @@ class FortalezaController extends Controller
      */
     public function store(Request $request)
     {
-        /* Data insertion to the database*/ 
-        $fortalezas = new Fortaleza();
-        $fortalezas->description=$request->get('description');
-        $fortalezas->save();
-        return redirect('/fortaleza');
+        $amenazas = new amenazas();
+        $amenazas->description=$request->get('description');
+        $amenazas->save();
+        return redirect('/amenazas');
     }
 
     /**
@@ -76,12 +73,11 @@ class FortalezaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->description=$request->get('description');
-        $fortaleza->save();
+        $amenazas = amenazas::find($id);
+        $amenazas->description=$request->get('description');
+        $amenazas->save();
 
-        return redirect('/fortaleza');
-
+        return redirect('/amenazas');
     }
 
     /**
@@ -92,8 +88,8 @@ class FortalezaController extends Controller
      */
     public function destroy($id)
     {
-        $fortaleza = Fortaleza::find($id);
-        $fortaleza->delete();
-        return redirect('/fortaleza');
+        $amenazas = amenazas::find($id);
+        $amenazas->delete();
+        return redirect('/amenazas');
     }
 }
