@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1 id="IdentificadorIndex">MatrizDAFO</h1>    
+            <h1 >MatrizDAFO</h1>    
 
             <a href="#" class="btn_general_pdf"> <i class="fas fa-file-pdf">   Generar PDF </i></a>
             
@@ -35,7 +35,7 @@
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                                    <table id="basic-datatables1" class="display table table-striped table-hover table-boder-radius serial">
                                         <thead>
                                             {{-- insertion of items --}}
                                             <tr>
@@ -53,7 +53,7 @@
                                         <td  id="tr_">
                                             <div class="td_flex">
                                                 <input class="check" type="checkbox"> 
-                                                <div id="nro_item" class="circulo"></div>
+                                                <div id="" class="IndexFaDebilidades circulo nro_item"></div>
                                             </div>
                                         </td>
 
@@ -88,7 +88,7 @@
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                                    <table id="basic-datatables2" class="display table table-striped table-hover table-boder-radius serial">
                                         <thead>
                                             {{-- insertion of items --}}
                                             <tr>
@@ -106,7 +106,7 @@
                                         <td  id="tr_">
                                         <div class="td_flex">
                                             <input class="check" type="checkbox"> 
-                                            <div id="nro_item" class="circulo"></div>
+                                            <div id="" class="IndexDAFOOportunidades circulo nro_item"></div>
                                         </div>
                                         </td>
 
@@ -139,7 +139,7 @@
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
-                            <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                            <table id="basic-datatables3" class="display table table-striped table-hover table-boder-radius serial">
                                 <thead>
                                     {{-- insertion of items --}}
                                     <tr>
@@ -157,7 +157,7 @@
                                 <td  id="tr_">
                                     <div class="td_flex">
                                         <input class="check CheckboxFortaleza" type="checkbox"> 
-                                        <div id="nro_item" class="circulo"></div>
+                                        <div id="" class="IndexDAFOFortaleza nro_item circulo"></div>
                                     </div>
                                 </td>
 
@@ -188,7 +188,7 @@
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
-                            <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                            <table id="basic-datatables4" class="display table table-striped table-hover table-boder-radius serial">
                                 <thead>
                                     {{-- insertion of items --}}
                                     <tr>
@@ -206,7 +206,7 @@
                                 <td  id="tr_">
                                     <div class="td_flex">
                                         <input class="check CheckboxAmenaza" type="checkbox"> 
-                                        <div id="nro_item" class="circulo"></div>
+                                        <div id="" class="IndexDAFOAmenaza circulo nro_item"></div>
                                     </div>
                                 </td>
 

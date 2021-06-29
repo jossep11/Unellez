@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1 id="IdentificadorIndex">Oportunidades</h1>    
+            <h1 id="" class="IdentificadorIndex">Oportunidades</h1>    
             <!-- Button trigger modal -->
             <a href="#" data-toggle="modal" data-target="#modal1"> <i class="fas fa-plus"> Añadir nuevo</i></a>
             
@@ -67,7 +67,7 @@
                         @foreach($oportunidades as $oportunidad)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="nro_item" class="circulo"> </div>
+                              <div id="" class="circulo nro_item"> </div>
                             </td>
                             
                             <td> {{$oportunidad->description}}</td>

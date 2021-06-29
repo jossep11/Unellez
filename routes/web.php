@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EstrategiaFAController;
 use App\Http\Controllers\MatrizDAFOController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -9,14 +10,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/students', [MatrizDAFOController::class, 'index']);
-Route::post('/addstudents', 'MatrizDAFOController@store')->name('addstudents');
+Route::post('/addingfa', [EstrategiaFAController::class, 'store'])->name('add.estrategiafa');
+Route::get('/gettingfa/{id}', [EstrategiaFAController::class, 'getEditFaByID']);
+Route::put('/updatingfa', [EstrategiaFAController::class, 'update'])->name("Update.Fa");
+Route::delete('/deleting/{id}', [EstrategiaFAController::class, 'destroy']);
+
+
+//another way
+Route::get('/AllDataFa', [EstrategiaFAController::class, 'AllDataFa']);
+Route::post('/addingfa2', [EstrategiaFAController::class, 'addDataJson'])->name('add.estrategiafaJson');
+
+
 
 Route::resource('fortaleza', 'App\Http\Controllers\FortalezaController');
 Route::resource('oportunidades', 'App\Http\Controllers\OportunidadesController');
 Route::resource('amenazas', 'App\Http\Controllers\AmezanasController');
 Route::resource('debilidades', 'App\Http\Controllers\DebilidadesController');
 Route::resource('matrizdafo', 'App\Http\Controllers\MatrizDAFOController');
+Route::resource('estrategiafa', 'App\Http\Controllers\EstrategiaFaController');
 
 
 

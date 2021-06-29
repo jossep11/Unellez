@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1 id="IdentificadorIndex">Fortalezas</h1>    
+            <h1 id="" class="IdentificadorIndex">Fortalezas</h1>    
             <!-- Button trigger modal -->
             <a href="#" data-toggle="modal" data-target="#modal1"> <i class="fas fa-plus"> Añadir nuevo</i></a>
             
@@ -67,7 +67,7 @@
                         @foreach($fortalezas as $fortaleza)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="nro_item" class="circulo"> </div>
+                              <div id="" class="circulo nro_item"> </div>
                             </td>
                             
                             <td> {{$fortaleza->description}}</td>
