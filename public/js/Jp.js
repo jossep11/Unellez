@@ -8,7 +8,7 @@ let FortalezaCheck= document.querySelectorAll(".CheckboxFortaleza");
 let tr_amenaza= document.querySelectorAll(".tr_amenaza");
 let tablax = document.querySelector("#tablax");
 let checkseleccionado = document.querySelectorAll('.checkseleccionado');
-let Estrategia_Input = document.querySelectorAll('.Estrategia_Input');
+
 
 let RutaName=GetRutaName();
 
@@ -42,14 +42,6 @@ function GetRutaName() {
       menu.addEventListener('click', mobileMenu);
 */
 
-// with this a send to uppercase anything that is typed on all these inputs
-Estrategia_Input.forEach(input => {
-   const inputtouppercase = ()=>{
-    input.value=input.value.toUpperCase();
-   }
-
-   input.addEventListener('keyup', inputtouppercase);
-});
 
 
 

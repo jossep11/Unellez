@@ -473,7 +473,9 @@
 
     <script src="{{asset('js/IdentificadorIndex.js')}}"></script>    
     
-    <script src="{{asset('js/Jp.js')}}"></script>    
+    <script src="{{asset('js/validation.js')}}"></script>   
+    <script src="{{asset('js/Jp.js')}}"></script>   
+
 
 </body>
 

@@ -54,7 +54,7 @@
                             
                                       <div class="collapse" id="collapseInsercionData1">                                
                                         <div class="input-group input-group-sm mb-3">
-                                        {{-- Input --}} <input type="text" class="form-control Estrategia_Input" aria-label="Small" placeholder="Ingresar las fortalezas. Ej:F1, F2, F3" required  name="FA_Fortaleza" id="FA_Fortaleza">
+                                        {{-- Input --}} <input type="text" class="form-control Estrategia_Input Estrategia_Input_F" aria-label="Small" placeholder="Ingresar las fortalezas. Ej:F1, F2, F3" required  name="FA_Fortaleza" id="FA_Fortaleza">
                                         </div>
                                             
                                         <div id="FaFortaleza" class=" ">
@@ -77,7 +77,7 @@
                                             
                                             <div class="input-group input-group-sm mb-3">
                                 {{-- Input --}} 
-                                                <input type="text" class="form-control Estrategia_Input"  aria-label="Small" placeholder="Ingresar las Amenazas. Ej:A1, A2, A3" required id="FA_Amenaza">
+                                                <input type="text" class="form-control Estrategia_Input Estrategia_Input_A"  aria-label="Small" placeholder="Ingresar las Amenazas. Ej:A1, A2, A3" required id="FA_Amenaza">
                                             </div>
                                             
                                             <div id="FAmenaza" class=" ">
@@ -157,7 +157,7 @@
             
                       <div class="collapse" id="FaEditFortaleza">                                
                         <div class="input-group input-group-sm mb-3">
-                        {{-- Input --}} <input type="text" class="form-control Estrategia_Input" aria-label="Small" placeholder="Ingresar las fortalezas. Ej:F1, F2, F3" required id="EditFA_Fortaleza">
+                        {{-- Input --}} <input type="text" class="form-control Estrategia_Input Estrategia_Input_F" aria-label="Small" placeholder="Ingresar las fortalezas. Ej:F1, F2, F3" required id="EditFA_Fortaleza">
                         </div>
                             
                         <div id="EditFaFortaleza" class=" ">
@@ -178,7 +178,7 @@
                             
                             <div class="input-group input-group-sm mb-3">
                 {{-- Input --}} 
-                                <input type="text" class="form-control Estrategia_Input"  aria-label="Small" placeholder="Ingresar las Amenazas. Ej:A1, A2, A3" required id="EditFA_Amenaza">
+                                <input type="text" class="form-control Estrategia_Input Estrategia_Input_A"  aria-label="Small" placeholder="Ingresar las Amenazas. Ej:A1, A2, A3" required id="EditFA_Amenaza">
                             </div>
                             
                             <div id="EditFAmenaza" class=" ">
