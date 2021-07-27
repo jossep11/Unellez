@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fortaleza;
+use App\Models\amenazas;
 
 class FortalezaController extends Controller
 {
@@ -39,10 +40,22 @@ class FortalezaController extends Controller
     public function store(Request $request)
     {
         /* Data insertion to the database*/ 
+        //$id_descripcion= amenazas::where('id', 1)->get();
+
+        //$id_descripcion= amenazas::where('id', 1)->get('description');
+        //$id_descripcion= amenazas::where('id', 1)->first();
+        
+       // $id_descripcion= amenazas::All();
+        
+        
         $fortalezas = new Fortaleza();
+
         $fortalezas->description=$request->get('description');
         $fortalezas->save();
-        return redirect('/fortaleza');
+        
+
+        
+        //return redirect('/fortaleza');
     }
 
     /**

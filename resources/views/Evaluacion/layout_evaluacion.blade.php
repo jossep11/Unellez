@@ -406,13 +406,20 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/matrizdafo">
+                        <a href="/matriz_analisis">
                             <i class="far fa-chart-bar"></i>
-                            <p>MatrizDAFO</p>
+                            <p>Matriz de Análisis</p>
                             <span class="caret"></span>
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="/matriz_analisis_admin">
+                            <i class="far fa-chart-bar"></i>
+                            <p>Matriz de Análisis (admin)</p>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
 
                         {{-- @endrole --}}
 

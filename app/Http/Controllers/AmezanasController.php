@@ -15,7 +15,6 @@ class AmezanasController extends Controller
     public function index()
     {
         $amenazas = amenazas::all();
-        return view('Evaluacion.Amenaza')->with('amenazas', $amenazas);
     }
 
     /**
@@ -25,7 +24,7 @@ class AmezanasController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Fortalezas.create');
+        
     }
 
     /**
@@ -39,7 +38,7 @@ class AmezanasController extends Controller
         $amenazas = new amenazas();
         $amenazas->description=$request->get('description');
         $amenazas->save();
-        return redirect('/amenazas');
+        //return redirect('/matriz_analisis_admin');
     }
 
     /**
@@ -77,7 +76,7 @@ class AmezanasController extends Controller
         $amenazas->description=$request->get('description');
         $amenazas->save();
 
-        return redirect('/amenazas');
+        return redirect('/matriz_analisis_admin');
     }
 
     /**
@@ -90,6 +89,6 @@ class AmezanasController extends Controller
     {
         $amenazas = amenazas::find($id);
         $amenazas->delete();
-        return redirect('/amenazas');
+        return redirect('/matriz_analisis_admin');
     }
 }

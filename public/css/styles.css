@@ -6,6 +6,8 @@
 .card {
     /*----margin from top----*/
     margin-top: 2rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
 }
 
 
@@ -141,4 +143,8 @@ column on Fa can grow without any problem ----*/
 
 #FaFortaleza div{
     margin-bottom: .4rem;
+}
+
+.thresponsive{
+    width: 10%;
 }

@@ -16,7 +16,7 @@ class DebilidadesController extends Controller
     {
         
         $debilidades =debilidades::all();
-        return view('Evaluacion.Debilidades')->with('debilidades', $debilidades);
+        
     }
 
     /**
@@ -40,7 +40,7 @@ class DebilidadesController extends Controller
         $debilidades = new debilidades();
         $debilidades->description=$request->get('description');
         $debilidades->save();
-        return redirect('/debilidades');
+       
     }
 
     /**
@@ -78,7 +78,7 @@ class DebilidadesController extends Controller
         $debilidades->description=$request->get('description');
         $debilidades->save();
 
-        return redirect('/debilidades');
+        return redirect('/matriz_analisis_admin');
     }
 
     /**
@@ -91,6 +91,6 @@ class DebilidadesController extends Controller
     {
         $debilidades = debilidades::find($id);
         $debilidades->delete();
-        return redirect('/debilidades');
+        return redirect('/matriz_analisis_admin');
     }
 }

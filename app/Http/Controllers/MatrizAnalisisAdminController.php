@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\amenazas;
+use App\Models\debilidades;
 use Illuminate\Http\Request;
 
-class AmenazaController extends Controller
+class MatrizAnalisisAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,11 @@ class AmenazaController extends Controller
      */
     public function index()
     {
-        //
+        $debilidades =debilidades::all();
+        $amenazas = amenazas::all();
+        return view('Evaluacion.admin.MatrizAnalisis_Admin')->with('amenazas', $amenazas)
+        ->with('debilidades', $debilidades);
+
     }
 
     /**
@@ -23,7 +29,6 @@ class AmenazaController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**

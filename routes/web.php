@@ -26,8 +26,10 @@ Route::resource('fortaleza', 'App\Http\Controllers\FortalezaController');
 Route::resource('oportunidades', 'App\Http\Controllers\OportunidadesController');
 Route::resource('amenazas', 'App\Http\Controllers\AmezanasController');
 Route::resource('debilidades', 'App\Http\Controllers\DebilidadesController');
-Route::resource('matrizdafo', 'App\Http\Controllers\MatrizDAFOController');
+Route::resource('matriz_analisis', 'App\Http\Controllers\MatrizDAFOController');
 Route::resource('estrategiafa', 'App\Http\Controllers\EstrategiaFaController');
+
+Route::resource('matriz_analisis_admin', 'App\Http\Controllers\MatrizAnalisisAdminController');
 
 
 
