@@ -1,3 +1,4 @@
+/**
 let InputEFortaleza = document.querySelectorAll('.Estrategia_Input_F');
 
 //Validation of inputs
@@ -6,7 +7,7 @@ InputEFortaleza.forEach(element => {
     
     const ValidationF = (e) =>{
        
-        if (!RegExp_F.test(e.key)) {
+        if (!RegExp_F.test(e.key) ) {
             e.preventDefault();           
        }
     }
@@ -40,3 +41,5 @@ InputEAmenaza.forEach(element => {
     element.addEventListener('keypress', ValidationA);
 });
     
+
+ */

@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1 >MatrizDAFO</h1>    
+            <h1 >Matriz de Análisis</h1>    
 
             <a href="#" class="btn_general_pdf"> <i class="fas fa-file-pdf">   Generar PDF </i></a>
             
@@ -19,6 +19,8 @@
             <div class="accordion accordion-secondary">
                
                {{-- cardtag Debilidades--}}
+
+               
                 <div class="card">
                     <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <div class="span-icon">
@@ -29,8 +31,8 @@
                         </div>
                         <div class="span-mode"></i></div>
                     </div>
+
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                       
                        
                         <div class="card-body">
                             <div class="card-body">
@@ -71,6 +73,7 @@
                         </div>
                     </div>
                 </div>
+                
 
                {{-- cardtag Oportunidades --}}
                 <div class="card">
@@ -83,6 +86,7 @@
                         </div>
                         <div class="span-mode"></div>
                     </div>
+
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 
                         <div class="card-body">
@@ -122,8 +126,7 @@
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
                 </div>
 
                 {{-- cardtag Fortalezas --}}

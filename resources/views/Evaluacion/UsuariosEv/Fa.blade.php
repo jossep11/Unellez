@@ -47,16 +47,14 @@
                                 <form id="fainsert" > 
                                     {{ csrf_field() }}
 
+                                   <p> Fortalezas previamente seleccionadas</p>
                                     <a class="btn btn_test " data-toggle="collapse" href="#collapseInsercionData1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                         <span>Fortalezas</span>
                                         <span class="caret"></span>
                                     </a>
                             
                                       <div class="collapse" id="collapseInsercionData1">                                
-                                        <div class="input-group input-group-sm mb-3">
-                                        {{-- Input --}} <input type="text" class="form-control Estrategia_Input Estrategia_Input_F" aria-label="Small" placeholder="Ingresar las fortalezas. Ej:F1, F2, F3" required  name="FA_Fortaleza" id="FA_Fortaleza">
-                                        </div>
-                                            
+                                                                                    
                                         <div id="FaFortaleza" class=" ">
                                             <div id="NoSeleccion_FA_Fortaleza">
                                                 <p style="text-align: center;">No ha hecho alguna selección aun</p>
@@ -66,7 +64,7 @@
                             
                                         </div>
 
-
+                                        <p> Amenazas previamente seleccionadas</p>
                                       <a class="btn btn_test " data-toggle="collapse" href="#collapseInsercionData2" role="button" aria-expanded="false" aria-controls="collapseExample">
                                        
                                         <span>Amenazas</span>
@@ -74,11 +72,7 @@
                                        </a>
                                             
                                         <div class="collapse" id="collapseInsercionData2" >
-                                            
-                                            <div class="input-group input-group-sm mb-3">
-                                {{-- Input --}} 
-                                                <input type="text" class="form-control Estrategia_Input Estrategia_Input_A"  aria-label="Small" placeholder="Ingresar las Amenazas. Ej:A1, A2, A3" required id="FA_Amenaza">
-                                            </div>
+
                                             
                                             <div id="FAmenaza" class=" ">
                                             <div id="NoSeleccion">
@@ -94,8 +88,9 @@
                                     </div>
     
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" id="butsave" >Save changes</button>
+                                        <button type="submit" class="btn btn-primary" id="butsave" >Añadir</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                       
                                     </div>
     
                                 </form>
@@ -273,19 +268,38 @@
         e.preventDefault();
        
        
-        let FA_Fortaleza = $('#FA_Fortaleza').val();
-        let FA_Amenaza = $('#FA_Amenaza').val();
+        let FA_Fortaleza = $('.Fortalezacheck_ input[type=checkbox]');
+        let FA_Amenaza = $('.Amenazacheck_ input[type=checkbox]');
         let Fa_Description= $('#message-text').val();
-    
-        
-    
+       
+
+        var Fa_Amenaza_ = '';    
+        var Fa_Fortaleza_='';
+        $(FA_Amenaza).each(function(){
+            if (this.checked) {
+               
+                Fa_Amenaza_ += $(this).val().replace(/[a-z]/g, '');
+            }
+           
+        }); 
+
+        $(FA_Fortaleza).each(function(){
+            if (this.checked) {
+               
+                Fa_Fortaleza_ += $(this).val().replace(/[a-z]/g, '');
+            }
+           
+        }); 
+
+
           /*  $("#butsave").attr("disabled", "disabled"); */
             $.ajax({
                 url:"{{route('add.estrategiafa')}}",
                 type: "POST",
                 data: {
-                  FA_Fortaleza: FA_Fortaleza,
-                  FA_Amenaza: FA_Amenaza,
+                    Fa_Fortaleza_: Fa_Fortaleza_.replace(/[,\s]{2}$/, ''),
+                  //with the rex a can remover the last coma
+                  Fa_Amenaza_: Fa_Amenaza_.replace(/[,\s]{2}$/, ''),
                   Fa_Description: Fa_Description,              
                   
                 },
@@ -293,14 +307,37 @@
                 success:function(response){
                     //console.log(response)
                     $('#fainsert')[0].reset();
-                    $('#fa_table').DataTable().clear().destroy();
-                    allData();}
-                    ,
+                    swal({
+                    title: "Excelente!",
+                    text: "La información se ha actualizado de forma correcta!",
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "Ok",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-success",
+                            closeModal: true
+                           
+                        }
+                    }
+                });
+                 $('#fa_table').DataTable().clear().destroy();
+                 allData();
+},
            
                 error:function(error){
                     console.log(error)
-                    alert('data no saved');
-                }    
+                    swal("Debes seleccionar al menos una Fortaleza y una Amenaza!", {
+                    icon : "info",
+                    buttons: {
+                        confirm: {
+                            className : 'btn btn-info'
+                        }
+                    },
+                });
+                   // alert('data no saved');
+            }    
          });
     });
 
@@ -353,8 +390,35 @@
 
     // delete 
     function DeteleFa(id) {
-        if(confirm("wanna delete this?")){
-            $.ajax({
+
+        swal({
+            title: '¿Está seguro que desea borrar este registro?',
+            text: "¡No pódras revertir esta acción!",
+            type: 'warning',
+            buttons:{
+                confirm: {
+                    text : 'Sí, Borrar',
+                    className : 'btn btn-info'
+                },
+                cancel: {
+                    visible: true,
+                    text : 'No, cancelar!',
+                    className: 'btn btn-danger'
+                }
+            }
+            
+        }).then((willDelete) => {
+            if (willDelete) {
+                swal("Registro borrado", {
+                    icon: "success",
+                    buttons : {
+                        confirm : {
+                            visible: true,
+                            className: 'btn btn-success'
+                        }
+                    }
+                });
+                $.ajax({
                 url:'/deleting/'+id, 
                 type:'DELETE',
                 data:{
@@ -364,15 +428,20 @@
                     $('#TableFa'+ id +' td:nth-child(2)').text( '-----');
                     $('#TableFa'+ id +' td:nth-child(3)').text('Table deleted');
                     $('#TableFa'+ id +' td:nth-child(4)').text('-----');
-                    alert('To see every change, reload the page')
+                    //alert('To see every change, reload the page')
                 },
                 error:function(error){
                     console.log(error)
-                    alert('data no saved');
+                    //alert('data not deleted');
                 } 
 
             });
-        }
+            } else {
+                //nothing happes
+            }
+        });
+
+
     }
 
 function item_id() {

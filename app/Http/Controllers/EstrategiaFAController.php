@@ -36,9 +36,13 @@ class EstrategiaFAController extends Controller
      */
     public function store(Request $request)
     {
+       
+
+
         $EstrategiaFa = new EstrategiaFa();
-        $EstrategiaFa->Fortalezas=$request->FA_Fortaleza;
-        $EstrategiaFa->Amenazas=$request->FA_Amenaza;
+        $EstrategiaFa->Fortalezas=$request->Fa_Fortaleza_;
+        
+        $EstrategiaFa->Amenazas=$request->Fa_Amenaza_;
         $EstrategiaFa->Description=$request->Fa_Description;
         $EstrategiaFa->save();
         return response()->json($EstrategiaFa);

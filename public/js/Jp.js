@@ -125,8 +125,8 @@ let AmenazaCheckIndice = document.querySelector(`.Amenazacheck${indice}`);
         var cell2 = row.cells[1];
     
         //Here I add the text selected to the modal
-        TableFAmenaza.innerHTML+=`<div class="Amenazacheck${indice} Amenazacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
-        EditTableFAmenaza.innerHTML+=`<div class="Amenazacheck${indice} Amenazacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
+        TableFAmenaza.innerHTML+=`<div class="Amenazacheck${indice} Amenazacheck_">      <input class="checkboxEFA Check_EstrategiaFA${indice}" type="checkbox"  value="A${indice+1}, " name="CheckAmenazaFa[]"> <span class="SpanAmenazaInsert">${cell1.textContent}</span> :${cell2.textContent}</div>`;
+        EditTableFAmenaza.innerHTML+=`<div class="Amenazacheck${indice} Amenazacheck_">  <input class="checkboxEFA Check_EstrategiaFA${indice} " type="checkbox"> <span class="SpanAmenaza">${cell1.textContent}</span> :${cell2.textContent}</div>`;
 
     // If Exist the class "Amenazacheck_" and "#Noseleccion" it'll remove the class
     if(document.querySelector(`.Amenazacheck_`) && document.querySelector(`#NoSeleccion`) ) {
@@ -135,11 +135,54 @@ let AmenazaCheckIndice = document.querySelector(`.Amenazacheck${indice}`);
             ParrafoNoSeleccion.remove();
     }
 
-    }
-    else{  
+                                //all this is gonna be to check if the element exist then make a value inside the input
+                                let Insert_EditAmenazaclicked = document.querySelectorAll('.checkboxEFA')
+
+                                Insert_EditAmenazaclicked.forEach(function (valor, indice2, item1) {  
+                                    console.log('test');
+                                    const Amenazaclicked_M = () => {
+                                    
+                                        // If a Amenazacheck is selected that means it's gonna the added the text to the modal
+                                        
+                                            console.log(`checkbox${indice2} is been selected`);
+                                            
+                                            
+                                            let SpanAmenazaInsert = document.querySelectorAll('.SpanAmenazaInsert');
+                                            
+                                            SpanAmenazaInsert.forEach(function (valorx, indiceSpanAmenazaInsert, item2) {  
+                                                //with this i can check if tienen el mismo indice asi poder do that action
+                                                if(valor.checked && indice2===indiceSpanAmenazaInsert ){
+                                                    console.log('a');
+                                                let item_id_spam= item2[indice2].textContent;
+                                                //input
+                                                let inputEstrategia_Input_A = document.querySelector('.Estrategia_Input_A');
+                                                let itemvalidacion =item_id_spam.replace(/\s/g, '');
+                                                inputEstrategia_Input_A.value+=itemvalidacion ;
+                                            }
+                                                
+                                            });
+
+                                 if(valor.checked){   
+                                    
+                                        }
+                                        else{  
+                                        // If a Amenazacheck is unselected that means the text from the modal is gonna the removed
+                                        let inputEstrategia_Input_A = document.querySelector('.Estrategia_Input_A');
+                                        inputEstrategia_Input_A.value="";
+                                        console.log(`checkbox${indice} is been unselected`);
+
+                                        }
+                                    };
+                                    //listener of the click
+                                    valor.addEventListener('click', Amenazaclicked_M);
+                                    });
+
+    }else{  
     // If a Amenazacheck is unselected that means the text from the modal is gonna the removed
         let AmenazaCheckIndice = document.querySelector(`.Amenazacheck${indice}`);
         AmenazaCheckIndice.remove();
+        let Insert_EditAmenazaclicked = document.querySelector(`.Check_EstrategiaFA${indice}`);
+        Insert_EditAmenazaclicked.remove();            
 
         // if the class 'Amenazacheck_' and the id'#NoSeleccion' does not exist that means a div with id 'NoSeleccion' is gonna be created
         if (!(document.querySelector(`.Amenazacheck_`)) && !(document.querySelector(`#NoSeleccion`))){
@@ -171,7 +214,7 @@ FortalezaCheck.forEach(function (valor, indice, item1) {
             var cell2 = row.cells[1];
         
             //Here I add the text selected to the modal
-            TableFAFortaleza.innerHTML+=`<div class="Fortalezacheck${indice} Fortalezacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
+            TableFAFortaleza.innerHTML+=`<div class="Fortalezacheck${indice} Fortalezacheck_">  <input class="checkboxE_FFA Check_EstrategiaFA${indice}" type="checkbox"  value="F${indice+1}, " name="CheckFortalezaFa[]"> <span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
             EditTableFAFortaleza.innerHTML+=`<div class="Fortalezacheck${indice} Fortalezacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
     
         // If Exist the class "Fortalezacheck" and "#Noseleccion" will remove the class
@@ -222,3 +265,6 @@ function IndexMatrizDAFO() {
 
 }
 IndexMatrizDAFO();
+
+
+
