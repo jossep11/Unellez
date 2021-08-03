@@ -38,7 +38,7 @@ class AmezanasController extends Controller
         $amenazas = new amenazas();
         $amenazas->description=$request->get('description');
         $amenazas->save();
-        //return redirect('/matriz_analisis_admin');
+        return redirect('/matriz_analisis_admin');
     }
 
     /**

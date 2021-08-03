@@ -21,14 +21,14 @@
                {{-- cardtag Debilidades--}}
 
                
-               @include('Evaluacion.admin.Debilidades')
-               {{-- comment
+    @include('Evaluacion.admin.Debilidades')
                
-               @include('Evaluacion.admin.Oportunidades')
-               @include('Evaluacion.admin.Fortaleza')
-                --}}
-                @include('Evaluacion.admin.Amenaza')
-
+    @include('Evaluacion.admin.Oportunidades')
+ 
+    @include('Evaluacion.admin.Amenaza')
+              
+    @include('Evaluacion.admin.Fortaleza')
+               
 
                
                 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\amenazas;
 use App\Models\debilidades;
+use App\Models\Fortaleza;
+use App\Models\oportunidades;
 use Illuminate\Http\Request;
 
 class MatrizAnalisisAdminController extends Controller
@@ -17,8 +19,12 @@ class MatrizAnalisisAdminController extends Controller
     {
         $debilidades =debilidades::all();
         $amenazas = amenazas::all();
+        $oportunidades = oportunidades::all();
+        $fortaleza = Fortaleza::all();
         return view('Evaluacion.admin.MatrizAnalisis_Admin')->with('amenazas', $amenazas)
-        ->with('debilidades', $debilidades);
+        ->with('debilidades', $debilidades)
+        ->with('oportunidades', $oportunidades)
+        ->with('fortalezas', $fortaleza);
 
     }
 

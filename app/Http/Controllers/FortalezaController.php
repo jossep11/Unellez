@@ -16,7 +16,7 @@ class FortalezaController extends Controller
     public function index()
     {
         $fortalezas =Fortaleza::all();
-        return view('Evaluacion.Fortaleza')->with('fortalezas', $fortalezas);
+        return view('Evaluacion.admin.Fortaleza')->with('fortalezas', $fortalezas);
         //
     }
 
@@ -27,7 +27,7 @@ class FortalezaController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Fortalezas.create');
+        
 
     }
 
@@ -52,10 +52,7 @@ class FortalezaController extends Controller
 
         $fortalezas->description=$request->get('description');
         $fortalezas->save();
-        
-
-        
-        //return redirect('/fortaleza');
+        return redirect('/matriz_analisis_admin');
     }
 
     /**
@@ -93,7 +90,7 @@ class FortalezaController extends Controller
         $fortaleza->description=$request->get('description');
         $fortaleza->save();
 
-        return redirect('/fortaleza');
+        return redirect('/matriz_analisis_admin');
 
     }
 
@@ -107,6 +104,6 @@ class FortalezaController extends Controller
     {
         $fortaleza = Fortaleza::find($id);
         $fortaleza->delete();
-        return redirect('/fortaleza');
+        return redirect('/matriz_analisis_admin');
     }
 }

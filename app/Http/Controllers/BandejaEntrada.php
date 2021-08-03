@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Operacion;
 use Illuminate\Http\Request;
-use App\Models\debilidades;
+use Illuminate\Support\Facades\DB;
 
-class DebilidadesController extends Controller
+class BandejaEntrada extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,11 @@ class DebilidadesController extends Controller
      */
     public function index()
     {
+        $operacion = DB::table('operacions')
+        ->join('users', 'operacions.id_user', '=', 'users.id')->get();
         
-        $debilidades =debilidades::all();
-        
+
+       return view('Evaluacion.admin.BandejaEntrada')->with('operacion', $operacion);
     }
 
     /**
@@ -26,7 +29,7 @@ class DebilidadesController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Debilidades.create');
+        //
     }
 
     /**
@@ -37,10 +40,7 @@ class DebilidadesController extends Controller
      */
     public function store(Request $request)
     {
-        $debilidades = new debilidades();
-        $debilidades->description=$request->get('description');
-        $debilidades->save();
-        return redirect('/matriz_analisis_admin');
+        //
     }
 
     /**
@@ -74,11 +74,7 @@ class DebilidadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $debilidades = debilidades::find($id);
-        $debilidades->description=$request->get('description');
-        $debilidades->save();
-
-        return redirect('/matriz_analisis_admin');
+        //
     }
 
     /**
@@ -89,8 +85,6 @@ class DebilidadesController extends Controller
      */
     public function destroy($id)
     {
-        $debilidades = debilidades::find($id);
-        $debilidades->delete();
-        return redirect('/matriz_analisis_admin');
+        //
     }
 }

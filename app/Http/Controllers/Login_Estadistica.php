@@ -3,20 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\debilidades;
+use Illuminate\Support\Facades\Auth;
 
-class DebilidadesController extends Controller
+
+
+class Login_Estadistica extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function prueba(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+       return redirect('/evaluacion_login');
+       }
+
     public function index()
     {
-        
-        $debilidades =debilidades::all();
-        
+        return view('login.Login_Estadistica');
     }
 
     /**
@@ -26,7 +33,7 @@ class DebilidadesController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Debilidades.create');
+        //
     }
 
     /**
@@ -37,11 +44,23 @@ class DebilidadesController extends Controller
      */
     public function store(Request $request)
     {
-        $debilidades = new debilidades();
-        $debilidades->description=$request->get('description');
-        $debilidades->save();
-        return redirect('/matriz_analisis_admin');
+        
+$credencial = request()->only('name','password');
+    
+if(Auth::attempt($credencial)&& Auth::user()->name=='Claudia' ){
+        request()->session()->regenerate();
+
+    return redirect('/matriz_analisis_admin');
+   
+    }else if(Auth::attempt($credencial)){
+        request()->session()->regenerate();
+
+    return redirect('/formarmatriz');
     }
+    else{
+        return redirect('/evaluacion_login');
+    }
+}
 
     /**
      * Display the specified resource.
@@ -74,11 +93,7 @@ class DebilidadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $debilidades = debilidades::find($id);
-        $debilidades->description=$request->get('description');
-        $debilidades->save();
-
-        return redirect('/matriz_analisis_admin');
+        //
     }
 
     /**
@@ -89,8 +104,6 @@ class DebilidadesController extends Controller
      */
     public function destroy($id)
     {
-        $debilidades = debilidades::find($id);
-        $debilidades->delete();
-        return redirect('/matriz_analisis_admin');
+        //
     }
 }

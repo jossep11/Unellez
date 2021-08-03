@@ -3,7 +3,8 @@
         
         <div class="card-header collapsed card_amenaza_collapse" id="headinamenazatwo" data-toggle="collapse" data-target="#collapseDeb" aria-expanded="false" aria-controls="collapseDeb">
             <div class="span-icon">
-                <i class="fas fa-dumbbell"></i>
+                <i class="fas fa-minus-circle"></i>
+
             </div>
             <div class="span-title">
                Debilidades
@@ -96,13 +97,13 @@
                 
                             </td>
 
-            <!-- Modal data insertion  -->
+            <!-- Modal update  -->
             {{-- to pass it the item that's gonna be changed have to send $amenaza-> --}}
             <div class="modal fade" id="editDebilidad{{$debilidad->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Amenaza</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Debilidades</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -164,47 +165,33 @@
                     }
                 }).then((redir)=>
                 {
-                        window.location.replace("/matriz_analisis_admin"); 
+                       this.submit();
                 });
 });
 
 //edit
 $('.DebilidadCambios').submit(function(e){
         e.preventDefault();
-        swal({
-            title: '¿Está seguro que desea realizar estos cambios?',
-            text: "¡No pódras revertir esta acción!",
-            type: 'warning',
-            buttons:{
+        swal({ 
+            title: "Excelente!",
+            text: "La información se ha actualizado de forma correcta!",
+            icon: "success",
+            buttons: {
                 confirm: {
-                    text : 'Sí, Borrar',
-                    className : 'btn btn-info'
-                },
-                cancel: {
+                    text: "Ok",
+                    value: true,
                     visible: true,
-                    text : 'No, cancelar!',
-                    className: 'btn btn-danger'
+                    className: "btn btn-success",
+                    closeModal: true
+                
                 }
             }
-            
-        }).then((willDelete) => {
-            if (willDelete) {
-                swal("La información se ha actualizado de forma correcta!", {
-                    icon: "success",
-                    buttons : {
-                        confirm : {
-                            visible: true,
-                            className: 'btn btn-success'
-                        }
-                    }
-                });
+        }).then((redir)=>
+        {
             this.submit();
-            } else {
-                //nothing happes
-            }
         });
-
     });
+
 
 //eliminar 
 $('.eliminar_Debilidades').submit(function(e){

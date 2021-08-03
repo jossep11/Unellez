@@ -16,7 +16,10 @@ class CreateBandejaEntradasTable extends Migration
         Schema::create('operacions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            
+            /* 
             $table->foreign('id_user')->references('id')->on('users');
+             */ 
             $table->timestamps();
         });
 
@@ -28,13 +31,13 @@ class CreateBandejaEntradasTable extends Migration
             $table->unsignedBigInteger('ID_Amenaza')->nullable();
             $table->unsignedBigInteger('ID_Debilidad')->nullable();
             $table->unsignedBigInteger('ID_Oportunidades')->nullable();
-
+/* 
             $table->foreign('ID_Operacion')->references('id')->nullable()->on('operacions');
             $table->foreign('ID_Fortaleza')->references('id')->nullable()->on('fortalezas');
             $table->foreign('ID_Amenaza')->references('id')->nullable()->on('amenazas');
             $table->foreign('ID_Debilidad')->references('id')->nullable()->on('debilidades');
             $table->foreign('ID_Oportunidades')->references('id')->nullable()->on('oportunidades');
-
+ */ 
 
             $table->timestamps();
         });

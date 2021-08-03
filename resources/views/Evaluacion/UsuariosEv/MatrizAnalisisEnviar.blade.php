@@ -15,7 +15,8 @@
             <a href="#" class="btn_general_pdf"> <i class="fas fa-file-pdf">   Generar PDF </i></a>
             
             </div>
-            
+            <form action="{{route ('formarmatriz.store')}}" method="POST">
+                @csrf
             <div class="accordion accordion-secondary">
                
                {{-- cardtag Debilidades--}}
@@ -34,7 +35,7 @@
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                        
-                        <div class="card-body">
+                      
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="basic-datatables1" class="display table table-striped table-hover table-boder-radius serial">
@@ -49,17 +50,17 @@
                                         {{--database data subtraction --}}
                                         <tbody>
                                         {{-- Data extraction from database --}}
-                                      @foreach ($debilidades as $debilidad)
+                                      @foreach ($debilidades as $key=> $debilidad)
                                       <tr>
                                        
                                         <td  id="tr_">
                                             <div class="td_flex">
-                                                <input class="check" type="checkbox"> 
+                                                <input class="check" type="checkbox" name="debilidades[]" value="{{$key}}"> 
                                                 <div id="" class="IndexFaDebilidades circulo nro_item"></div>
                                             </div>
                                         </td>
 
-                                        <td> {{$debilidad->description}}</td>
+                                        <td  class="Colum100"> {{$debilidad->description}}</td>
                                         
                                       </tr>
                                           
@@ -70,7 +71,6 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
                 
@@ -89,7 +89,7 @@
 
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 
-                        <div class="card-body">
+                      
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="basic-datatables2" class="display table table-striped table-hover table-boder-radius serial">
@@ -104,17 +104,17 @@
                                         {{--database data subtraction --}}
                                         <tbody>
                                         {{-- Data extraction from database --}}
-                                      @foreach ($oportunidades as $oportunidad)
+                                      @foreach ($oportunidades as $key=> $oportunidad)
                                       <tr>
                                        
                                         <td  id="tr_">
                                         <div class="td_flex">
-                                            <input class="check" type="checkbox"> 
+                                            <input class="check" type="checkbox"  name="oportunidad[]" value="{{$key}}"> 
                                             <div id="" class="IndexDAFOOportunidades circulo nro_item"></div>
                                         </div>
                                         </td>
 
-                                        <td> {{$oportunidad->description}}</td>
+                                        <td  class="Colum100"> {{$oportunidad->description}}</td>
                                         
                                       </tr>
                                           
@@ -125,7 +125,7 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -141,6 +141,7 @@
                         <div class="span-mode"></div>
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        
                         <div class="card-body">
                             <table id="basic-datatables3" class="display table table-striped table-hover table-boder-radius serial">
                                 <thead>
@@ -154,17 +155,17 @@
                                 {{--database data subtraction --}}
                                 <tbody>
                                 {{-- Data extraction from database --}}
-                              @foreach ($fortalezas as $fortaleza)
+                              @foreach ($fortalezas as $key=> $fortaleza)
                               <tr>
                                
                                 <td  id="tr_">
                                     <div class="td_flex">
-                                        <input class="check CheckboxFortaleza" type="checkbox"> 
+                                        <input class="check CheckboxFortaleza" type="checkbox"  name="fortalezas[]" value="{{$key}}" > 
                                         <div id="" class="IndexDAFOFortaleza nro_item circulo"></div>
                                     </div>
                                 </td>
 
-                                <td> {{$fortaleza->description}}</td>
+                                <td  class="Colum100"> {{$fortaleza->description}}</td>
                                 
                               </tr>
                                   
@@ -203,12 +204,12 @@
                                 {{--database data subtraction --}}
                                 <tbody>
                                 {{-- Data extraction from database --}}
-                              @foreach ($amenazas as $amenaza)
+                              @foreach ($amenazas as $key=> $amenaza)
                               <tr class="tr_amenaza">
                                
                                 <td  id="tr_">
                                     <div class="td_flex">
-                                        <input class="check CheckboxAmenaza" type="checkbox"> 
+                                        <input class="check CheckboxAmenaza" type="checkbox"  name="amenazas[]" value="{{$key}}"> 
                                         <div id="" class="IndexDAFOAmenaza circulo nro_item"></div>
                                     </div>
                                 </td>
@@ -226,71 +227,11 @@
                     </div>
                 </div>
 
-                {{-- Fa --}}
-
-{{-- 
-                
-                @include('Evaluacion.UsuariosEv.Fa')
-            
-                <div class="card">
-                    <div class="card-header collapsed" id="headingSix" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
-                        <div class="span-icon">
-                            <i class="fas fa-chess-rook"></i>
-
-                        </div>
-                        <div class="span-title">
-                         Estrategias DA
-                        </div>
-                        <div class="span-mode"></div>
-                    </div>
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header collapsed" id="headingSeven" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
-                        <div class="span-icon">
-                            <i class="fas fa-chess-bishop"></i>
-                        </div>
-                        <div class="span-title">
-                        Estrategias FO
-
-                        </div>
-                        <div class="span-mode"></div>
-                    </div>
-                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header collapsed" id="headingEight" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
-                        <div class="span-icon">
-                            <i class="fas fa-chess-pawn"></i>
-                        </div>
-                        <div class="span-title">
-                        Estrategias DO
-                        </div>
-                        <div class="span-mode"></div>
-                    </div>
-                    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                
-comment --}}
-
 
             </div>
-
-
+                <button type="submit" class="btn btn-info float-right">Enviar</button>
+        </form>
+            
         </div>
 
  

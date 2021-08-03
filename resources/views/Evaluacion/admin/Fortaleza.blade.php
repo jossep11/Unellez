@@ -1,43 +1,53 @@
-@extends('Evaluacion.layout_evaluacion')
 
-@section('css')
-
-@endsection
-
-@section('contenido')
-
-<div class="col-md-12">
     <div class="card">
-        <div class="card-header">
-            <div class="barra">
-            <h1 id="" class="IdentificadorIndex">Fortalezas</h1>    
-            <!-- Button trigger modal -->
-            <a href="#" data-toggle="modal" data-target="#modal1"> <i class="fas fa-plus"> Añadir nuevo</i></a>
-            
+        
+        <div class="card-header collapsed card_amenaza_collapse" id="headinfortaleza" data-toggle="collapse" data-target="#collapseFortaleza" aria-expanded="false" aria-controls="collapseFortaleza">
+            <div class="span-icon">
+                <i class="fas fa-magic"></i>
+
             </div>
+            <div class="span-title">
+               Fortalezas
+            </div>
+            <div class="span-mode"></div>
         </div>
 
+
+        <div id="collapseFortaleza" class="collapse " aria-labelledby="headinfortaleza" data-parent="#accordion">
+            <div class="card-body">
+    
+                {{-- Header inside of the collapse --}}
+                <div class="Header_InsideCollapse">
+                    <div class="barra">
+                    <h1 id="" class="IdentificadorD">Fortalezas</h1> 
+                    <!-- Button trigger modal -->
+                    <a href="# " class="btn_agregar_estrategia" data-toggle="modal" data-target="#modalFortalezas"> <i class="fas fa-plus"> Añadir nuevo</i></a>
+                    
+                    </div>
+                </div>
+         
             <!-- Modal data insertion  -->
-            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="modalFortalezas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Añadir Fortalezas</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                     
-                            <form method="POST">
+                            <form class="añadirFortalezas" action="{{route ('fortaleza.store')}}" method="POST">
                                 @csrf
+                                <p>Fortalezas</p>
                                 <div class="campo">
-                                  <textarea class="form-control1" id="message-text" name="description" autofocus></textarea>
+                                  <textarea class="form-control1"  name="description" autofocus minlength="10" required></textarea>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-info">Añadir</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                 </div>
 
                             </form>
@@ -55,27 +65,27 @@
                     <thead>
                         {{-- insertion of items --}}
                         <tr>
-                            <th>Nº item</th>
-                            <th>Descripcion</th>
-                            <th>Acciones</th>
+                            <th class="thresponsive">Nº item</th>
+                            <th >Descripcion</th>
+                            <th class="thresponsive">Acciones</th>
                         </tr>
                     </thead>
     
                     {{--database data subtraction --}}
                     <tbody>
                     {{-- Data extraction from database --}}
-                        @foreach($fortalezas as $fortaleza)
+                    @foreach($fortalezas as $fortaleza)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="" class="circulo nro_item"> </div>
+                              <div id="" class="nro_item circulo"> </div>
                             </td>
                             
                             <td> {{$fortaleza->description}}</td>
 
                             <td>
-                                <form action="{{route ('fortaleza.destroy', $fortaleza->id)}}" method="POST">
+                                <form class="eliminar_Fortalezas" action="{{route ('fortaleza.destroy', $fortaleza->id)}}" method="POST">
                             	<div class="form-button-action">    
-                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editFortaleza{{$fortaleza->id}}"><i class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editFortalezas{{$fortaleza->id}}"><i class="fa fa-edit"></i></a>
                                     @csrf
                                     @method('DELETE')
                                 <button class="btn btn-link btn-danger" title="Eliminar" type="submit" >
@@ -87,38 +97,38 @@
                 
                             </td>
 
-<!-- Modal data insertion  -->
-{{-- to pass it the item that's gonna be changed have to send $fortaleza-> --}}
-<div class="modal fade" id="editFortaleza{{$fortaleza->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            {{-- with fortaleza.update I indicate where it's gonna be the change Jp--}}
-            {{-- $fortaleza is the reference the item that it's gonna be changed Jp--}}            
-            <form action="{{route('fortaleza.update', $fortaleza)}}"  method="POST">
-                {{ csrf_field() }} {{   method_field('PUT')   }}
+            <!-- Modal data insertion  -->
+            {{-- to pass it the item that's gonna be changed have to send $amenaza-> --}}
+            <div class="modal fade" id="editFortalezas{{$fortaleza->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Fortalezas</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{-- with amenaza.update I indicate where it's gonna be the change Jp--}}
+                        {{-- $amenaza is the reference the item that it's gonna be changed Jp--}}            
+                        <form class="FortalezaCambios" action="{{route('fortaleza.update', $fortaleza)}}"  method="POST">
+                            {{ csrf_field() }} {{   method_field('PUT')   }}
 
-                <div class="campo">
-                <textarea class="form-control1" id="message-text" name="description" >{{$fortaleza->description}}</textarea>
+                            <p>Fortalezas</p>
+                            <div class="campo">
+                            <textarea class="form-control1" id="message-text" name="description" minlength="10" required>{{$fortaleza->description}}</textarea>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit"{{$fortaleza->id}} class="btn btn-info">Guardar Cambios</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit"{{$fortaleza->id}} class="btn btn-primary">Save changes</button>
                 </div>
-
-            </form>
-        </div>
-    </div>
-</div>
-</div>
-
+            </div>
                         </tr>
                         @endforeach
 
@@ -126,8 +136,100 @@
                 </table>
             </div>
         </div>
+             
+            </div>
+        </div>
+
+
     </div>
-</div>
+
+<script>
 
 
-@endsection
+//añadido
+    $('.añadirFortalezas').on('submit', function(e) {
+        e.preventDefault();
+                swal({
+                    title: "Excelente!",
+                    text: "La información se ha actualizado de forma correcta!",
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "Ok",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-success",
+                            closeModal: true
+                           
+                        }
+                    }
+                }).then((redir)=>
+                {
+                       this.submit();
+                });
+});
+
+//edit
+$('.FortalezaCambios').submit(function(e){
+        e.preventDefault();
+        swal({ 
+            title: "Excelente!",
+            text: "La información se ha actualizado de forma correcta!",
+            icon: "success",
+            buttons: {
+                confirm: {
+                    text: "Ok",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-success",
+                    closeModal: true
+                
+                }
+            }
+        }).then((redir)=>
+        {
+            this.submit();
+        });
+    });
+
+
+//eliminar 
+$('.eliminar_Fortalezas').submit(function(e){
+        e.preventDefault();
+        swal({
+            title: '¿Está seguro que desea borrar este registro?',
+            text: "¡No pódras revertir esta acción!",
+            type: 'warning',
+            buttons:{
+                confirm: {
+                    text : 'Sí, Borrar',
+                    className : 'btn btn-info'
+                },
+                cancel: {
+                    visible: true,
+                    text : 'No, cancelar!',
+                    className: 'btn btn-danger'
+                }
+            }
+            
+        }).then((willDelete) => {
+            if (willDelete) {
+                swal("Registro borrado", {
+                    icon: "success",
+                    buttons : {
+                        confirm : {
+                            visible: false,
+                            className: 'btn btn-success'
+                        }
+                    }
+                });
+            this.submit();
+            } else {
+                //nothing happes
+            }
+        });
+
+    });
+
+</script>
+

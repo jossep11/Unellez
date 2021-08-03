@@ -3,7 +3,8 @@
         
         <div class="card-header collapsed card_amenaza_collapse" id="headinamenazaone" data-toggle="collapse" data-target="#collapseAmenazaOne" aria-expanded="false" aria-controls="collapseAmenazaOne">
             <div class="span-icon">
-                <i class="fas fa-dumbbell"></i>
+                <i class="fas fa-exclamation-triangle"></i>
+
             </div>
             <div class="span-title">
                Amenazas
@@ -164,46 +165,31 @@
                     }
                 }).then((redir)=>
                 {
-                        window.location.replace("/matriz_analisis_admin"); 
+                    this.submit();
                 });
 });
 
 //edit
 $('.AmenazaCambios').submit(function(e){
-        e.preventDefault();
-        swal({
-            title: '¿Está seguro que desea realizar estos cambios?',
-            text: "¡No pódras revertir esta acción!",
-            type: 'warning',
-            buttons:{
+    e.preventDefault();
+        swal({ 
+            title: "Excelente!",
+            text: "La información se ha actualizado de forma correcta!",
+            icon: "success",
+            buttons: {
                 confirm: {
-                    text : 'Sí, Borrar',
-                    className : 'btn btn-info'
-                },
-                cancel: {
+                    text: "Ok",
+                    value: true,
                     visible: true,
-                    text : 'No, cancelar!',
-                    className: 'btn btn-danger'
+                    className: "btn btn-success",
+                    closeModal: true
+                
                 }
             }
-            
-        }).then((willDelete) => {
-            if (willDelete) {
-                swal("La información se ha actualizado de forma correcta!", {
-                    icon: "success",
-                    buttons : {
-                        confirm : {
-                            visible: true,
-                            className: 'btn btn-success'
-                        }
-                    }
-                });
+        }).then((redir)=>
+        {
             this.submit();
-            } else {
-                //nothing happes
-            }
         });
-
     });
 
 //eliminar 
