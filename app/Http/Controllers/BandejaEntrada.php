@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UsersExport;
 use App\Models\Operacion;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BandejaEntrada extends Controller
 {
@@ -16,7 +19,7 @@ class BandejaEntrada extends Controller
     public function index()
     {
         $operacion = DB::table('operacions')
-        ->join('users', 'operacions.id_user', '=', 'users.id')->get();
+        ->join('users', 'operacions.id_user', '=', 'users.id')->get(['users.name', 'users.Nombre_Direccion', 'operacions.id', 'operacions.created_at' ]);
         
 
        return view('Evaluacion.admin.BandejaEntrada')->with('operacion', $operacion);
@@ -87,4 +90,25 @@ class BandejaEntrada extends Controller
     {
         //
     }
+
+
+      /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function export(request $request)  
+    {   
+
+        $boton= $request->get('boton');
+       // dd($this->$boton);
+
+       //return Excel::download(new UsersExport, 'POA.xlsx');
+
+        return Excel::download(new UsersExport($boton), 'excel.xlsx');
+        
+    }
+
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\UsersExport;
 use App\Http\Controllers\BandejaEntrada;
 use App\Http\Controllers\EstrategiaFAController;
 use App\Http\Controllers\Login_Estadistica;
@@ -38,8 +39,14 @@ Route::post('evaluacion_loginout', 'App\Http\Controllers\Login_Estadistica@prueb
 
 Route::resource('bandeja_entrada', BandejaEntrada::class);
 
+Route::get('/reporte_xlsx', [BandejaEntrada::class, 'export'])->name('export.x');
+
 
 Route::group(['middleware' => ['role:super-admin']], function () {
     Route::resource('estrategiafa', 'App\Http\Controllers\EstrategiaFaController');
 
 });
+
+
+//userexport
+

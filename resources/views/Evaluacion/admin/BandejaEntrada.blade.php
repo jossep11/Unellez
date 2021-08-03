@@ -40,13 +40,21 @@
                             <td>{{$item->created_at }}</td>
 
                             <td>
-            
-                                <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="{{$key+1}}"><i class="fa fa-edit"></i></a>
+                                
+                                
+                               <form id="prubz" action="{{ route('export.x'), $item->id }}" method="GET">
+                                
+                                
+                               @csrf 
+                               <button type="submit" name="boton" value="{{$item->id}}"></button>
+                                </form>
+                               
                             </td>
 
                        
                         </tr>
                         @endforeach
+                        
 
                     </tbody>
                 </table>
@@ -61,5 +69,7 @@
  
     </div>
 </div>
+
+
 
 @endsection

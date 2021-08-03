@@ -120,7 +120,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="submit"{{$fortaleza->id}} class="btn btn-info">Guardar Cambios</button>
+                                <button type="submit" class="btn btn-info">Guardar Cambios</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                             </div>
 
