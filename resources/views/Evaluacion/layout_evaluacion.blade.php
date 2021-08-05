@@ -52,7 +52,7 @@
                 
                     <img src="{{asset('logo1.png')}}" alt="logo" class="navbar-brand">
                     <span>
-                    Conopaima
+                    CONOPAIMA
                     </span>
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,18 +74,7 @@
             <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
 
                 <div class="container-fluid">
-                    <div class="collapse" id="search-nav">
-                        <form class="navbar-left navbar-form nav-search mr-md-3">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-search pr-1">
-                                        <i class="fa fa-search search-icon"></i>
-                                    </button>
-                                </div>
-                                <input type="text" placeholder="Search ..." class="form-control">
-                            </div>
-                        </form>
-                    </div>
+  
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">            
                        
                         <li class="nav-item dropdown hidden-caret">
@@ -139,9 +128,9 @@
                                     {{$user = auth()->user()->name}} {{$user = auth()->user()->Apellido}}
                                     <br>
                                     @role('Administrador')
-                                    Admin
+                                    Administrador
                                     @else
-                                    User
+                                    Usuario
                                     @endrole
                                     {{--The next line show the user's name conected--}}
                                     {{-- <span class="user-level">{{$user = auth()->user()->name}}</span>--}}
@@ -174,19 +163,8 @@
 
 
                         {{-- @role('S_Admin|viewer') --}}
-                                                  
-            @role('Administrador')
 
-                    <li class="nav-item">
-                        <a href="#sidebarLayouts">
-                            <i class="fas fa-envelope"></i>
-                            <p>Bandeja de entrada</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-            @endrole
-
-        @role('user')
+        @role('Usuario')
                     <li class="nav-item">
                         <a href="/formarmatriz">
                             <i class="far fa-chart-bar"></i>
@@ -197,16 +175,26 @@
         @endrole
 
         @role('Administrador')
-                    <li class="nav-item">
-                        <a href="/matriz_analisis_admin">
-                            <i class="far fa-chart-bar"></i>
-                            <p>Matriz de Análisis (Administrador)</p>
-                            <span class="caret"></span>
+        <li class="nav-item">
+            <a href="/matriz_analisis_admin">
+                <i class="far fa-chart-bar"></i>
+                <p>Matriz de Análisis</p>
+                <span class="caret"></span>
+            </a>
+
+            <div class="collapse show" id="forms">
+                <ul class="nav nav-collapse">
+                    <li>
+                        <a href="/bandeja_entrada">
+                            <span class="sub-item">Bandeja de entrada</span>
                         </a>
                     </li>
+                </ul>
+            </div>
+        </li>
         @endrole
                         {{-- @endrole --}}
-
+    
           
 
                     </ul>

@@ -42,7 +42,7 @@
                                 @csrf
                                 <p>Debilidades</p>
                                 <div class="campo">
-                                  <textarea class="form-control1"  name="description" autofocus minlength="10" required></textarea>
+                                  <textarea class="form-control1"  name="description" autofocus minlength="5" required></textarea>
                                 </div>
 
                                 <div class="modal-footer">
@@ -61,12 +61,12 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                <table id="basic-datatables3" class="display table table-striped table-hover table-boder-radius serial">
                     <thead>
                         {{-- insertion of items --}}
                         <tr>
                             <th class="thresponsive">Nº item</th>
-                            <th >Descripcion</th>
+                            <th >Descripción</th>
                             <th class="thresponsive">Acciones</th>
                         </tr>
                     </thead>
@@ -77,7 +77,7 @@
                     @foreach($debilidades as $debilidad)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="" class="nro_item circulo"> </div>
+                              <div id="" class="IndexFaDebilidades nro_item circulo"> </div>
                             </td>
                             
                             <td> {{$debilidad->description}}</td>
@@ -116,7 +116,7 @@
 
                             <p>Debilidad</p>
                             <div class="campo">
-                            <textarea class="form-control1" id="message-text" name="description" minlength="10" required>{{$debilidad->description}}</textarea>
+                            <textarea class="form-control1" id="message-text" name="description" minlength="5" required>{{$debilidad->description}}</textarea>
                             </div>
 
                             <div class="modal-footer">

@@ -37,9 +37,11 @@ Route::resource('matriz_analisis_admin', 'App\Http\Controllers\MatrizAnalisisAdm
 Route::resource('evaluacion_login', Login_Estadistica::class)->middleware('guest');
 Route::post('evaluacion_loginout', 'App\Http\Controllers\Login_Estadistica@prueba')->name('logout');
 
-Route::resource('bandeja_entrada', BandejaEntrada::class);
+Route::resource('bandeja_entrada', BandejaEntrada::class)->middleware('role:Administrador');
 
 Route::get('/reporte_xlsx', [BandejaEntrada::class, 'export'])->name('export.x');
+
+Route::get('/userreporte_xlsx', [BandejaEntrada::class, 'exportLastOne'])->name('user_report.x');
 
 
 Route::group(['middleware' => ['role:super-admin']], function () {

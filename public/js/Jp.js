@@ -18,12 +18,13 @@ let RutaName=GetRutaName();
  * letter of the text that it's being working --jossep11 (jp)
  */
 
+/**
 if(id){
     item.forEach(function (valor, indice, item1) {
         valor.innerHTML = `${id.textContent.charAt(0)}${indice + 1}`;
     });
 }
-
+*/
 /** With this function I can get the name where I am located rn --jossep11 (jp)
  * So I can compare it later on
 */
@@ -77,8 +78,11 @@ $(document).ready(function() {
 }
 
 else{
+
+    for (let i = 1; i <= 4; i++) {
+        let TableBasicx = '#basic-datatables'+[i];
     $(document).ready(function() {
-        $('#basic-datatables').DataTable({   
+        $(TableBasicx).DataTable({   
             lengthMenu: [[10, 25, 50, -1], [10, 25, 50, 'Todos']], 
             "ordering": false,             
             language: {
@@ -104,8 +108,9 @@ else{
     
     })
 }
+}
 
-
+/**
 //Here I check what check from amenazas is clicked  --jossep11 (jp)
 AmenazaCheck.forEach(function (valor, indice, item1) {  
 
@@ -241,6 +246,7 @@ FortalezaCheck.forEach(function (valor, indice, item1) {
      valor.addEventListener('click', Fortalezaclicked);
     });
 
+ */
 function IndexMatrizDAFO() {
     let DebilidadesIndex = document.querySelectorAll(".IndexFaDebilidades");
     let OportunidadesIndex = document.querySelectorAll(".IndexDAFOOportunidades");
@@ -265,6 +271,5 @@ function IndexMatrizDAFO() {
 
 }
 IndexMatrizDAFO();
-
 
 

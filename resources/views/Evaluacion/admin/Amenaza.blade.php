@@ -19,7 +19,7 @@
                 {{-- Header inside of the collapse --}}
                 <div class="Header_InsideCollapse">
                     <div class="barra">
-                    <h1 id="" class="IdentificadorIndex">Amenazas</h1> 
+                    <h1 id="" class="">Amenazas</h1> 
                     <!-- Button trigger modal -->
                     <a href="# " class="btn_agregar_estrategia" data-toggle="modal" data-target="#modal1"> <i class="fas fa-plus"> Añadir nuevo</i></a>
                     
@@ -31,7 +31,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Añadir AMENAZA</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Añadir Amenaza</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -40,7 +40,7 @@
                     
                             <form class="añadirAmenaza" action="{{route ('amenazas.store')}}" method="POST">
                                 @csrf
-                                <p>AMENAZA</p>
+                                <p>Amenaza</p>
                                 <div class="campo">
                                   <textarea class="form-control1"  name="description" autofocus minlength="10" required></textarea>
                                 </div>
@@ -61,12 +61,12 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                <table id="basic-datatables4" class="display table table-striped table-hover table-boder-radius serial">
                     <thead>
                         {{-- insertion of items --}}
                         <tr>
                             <th class="thresponsive">Nº item</th>
-                            <th >Descripcion</th>
+                            <th >Descripción</th>
                             <th class="thresponsive">Acciones</th>
                         </tr>
                     </thead>
@@ -77,7 +77,7 @@
                         @foreach($amenazas as $amenaza)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="" class="nro_item circulo"> </div>
+                              <div id="" class="IndexDAFOAmenaza nro_item circulo"> </div>
                             </td>
                             
                             <td> {{$amenaza->description}}</td>
@@ -114,9 +114,9 @@
                         <form class="AmenazaCambios" action="{{route('amenazas.update', $amenaza)}}"  method="POST">
                             {{ csrf_field() }} {{   method_field('PUT')   }}
 
-                            <p>AMENAZA</p>
+                            <p>Amenaza</p>
                             <div class="campo">
-                            <textarea class="form-control1" id="message-text" name="description" minlength="10" required>{{$amenaza->description}}</textarea>
+                            <textarea class="form-control1" id="message-text" name="description" minlength="5" required>{{$amenaza->description}}</textarea>
                             </div>
 
                             <div class="modal-footer">

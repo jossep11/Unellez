@@ -185,3 +185,30 @@ h3{
 .colun10{
     width: 45%;
 }
+
+.fa-arrow-alt-circle-down{
+    color: rgb(0, 162, 255);
+    font-size: 18px;
+}
+.btnz{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.barra___{
+    display: flex;
+}
+
+.form2x{
+    margin-left: 1rem;
+}
+.fa-times{
+    color:rgb(252, 40, 40);
+    font-size: 18px;
+
+}

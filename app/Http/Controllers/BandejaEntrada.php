@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\LastUserExport;
 use App\Exports\UsersExport;
+use App\Models\Bandeja_Entrada;
 use App\Models\Operacion;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,9 +20,10 @@ class BandejaEntrada extends Controller
      */
     public function index()
     {
+        
         $operacion = DB::table('operacions')
         ->join('users', 'operacions.id_user', '=', 'users.id')->get(['users.name', 'users.Nombre_Direccion', 'operacions.id', 'operacions.created_at' ]);
-        
+                                                                                                                                        
 
        return view('Evaluacion.admin.BandejaEntrada')->with('operacion', $operacion);
     }
@@ -88,7 +91,12 @@ class BandejaEntrada extends Controller
      */
     public function destroy($id)
     {
-        //
+  
+    $eliminarOperacion= Operacion::find($id);
+    $eliminarOperacion->delete();
+    //$eliminarfromBandejaEntrada = Bandeja_Entrada::find($id);
+    $eliminarfromBandejaEntrada = DB::table('bandeja__entradas')->where('ID_Operacion', $id)->delete();
+    return redirect('/bandeja_entrada');
     }
 
 
@@ -100,15 +108,20 @@ class BandejaEntrada extends Controller
      */
     public function export(request $request)  
     {   
-
         $boton= $request->get('boton');
        // dd($this->$boton);
-
        //return Excel::download(new UsersExport, 'POA.xlsx');
-
-        return Excel::download(new UsersExport($boton), 'excel.xlsx');
-        
+        return Excel::download(new UsersExport($boton), 'Evaluacion.xlsx');
     }
 
+    public function exportLastOne(request $request)  
+    {   
+       // $boton= $request->get('boton');
+       // dd($this->$boton);
+       //return Excel::download(new UsersExport, 'POA.xlsx');
+        //return Excel::download(new UsersExport($boton), 'Evaluacion.xlsx');
+        return Excel::download(new LastUserExport, 'UsuarioEvaluacion.xlsx');
+    }
+    
 
 }

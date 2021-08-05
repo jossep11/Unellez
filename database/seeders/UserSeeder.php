@@ -26,16 +26,16 @@ class UserSeeder extends Seeder
         
         $user1_admin = User::create([
             'name'=> 'Direccion1',
-            'Nombre_Direccion' => 'Dirrección de Tecnología y Sistemas de Información',
-            'email'=> 'Dirreccion1@gmail.com',
+            'Nombre_Direccion' => 'Dirección de Tecnología y Sistemas de Información',
+            'email'=> 'Direccion1@gmail.com',
             'password'=> bcrypt('1234567'),
 
         ]);
 
         $user2_user = User::create([
             'name'=> 'Direccion2',
-            'Nombre_Direccion' => 'Dirrección de Planificación y Presupuesto Institucional',
-            'email'=> 'Dirreccion2@gmail.com',
+            'Nombre_Direccion' => 'Dirección de Planificación y Presupuesto Institucional',
+            'email'=> 'Direccion2@gmail.com',
             'password'=> bcrypt('1234567'),
 
         ]);

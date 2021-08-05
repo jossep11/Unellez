@@ -42,7 +42,7 @@
                                             {{-- insertion of items --}}
                                             <tr>
                                                 <th>Nº item</th>
-                                                <th>Descripcion</th>                                            
+                                                <th>Descripción</th>                                            
                                             </tr>
                                         </thead>
                         
@@ -97,7 +97,7 @@
                                             {{-- insertion of items --}}
                                             <tr>
                                                 <th>Nº item</th>
-                                                <th>Descripcion</th>                                            
+                                                <th>Descripción</th>                                            
                                             </tr>
                                         </thead>
                         
@@ -147,7 +147,7 @@
                                     {{-- insertion of items --}}
                                     <tr>
                                         <th>Nº item</th>
-                                        <th>Descripcion</th>                                            
+                                        <th>Descripción</th>                                            
                                     </tr>
                                 </thead>
                 
@@ -196,7 +196,7 @@
                                     {{-- insertion of items --}}
                                     <tr>
                                         <th>Nº item</th>
-                                        <th>Descripcion</th>                                            
+                                        <th>Descripción</th>                                            
                                     </tr>
                                 </thead>
                 

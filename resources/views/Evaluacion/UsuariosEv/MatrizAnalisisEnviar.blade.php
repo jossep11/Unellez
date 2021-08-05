@@ -9,13 +9,14 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
+       
+      
             <div class="barra">
             <h1 >Matriz de Análisis</h1>    
-
-            <a href="#" class="btn_general_pdf"> <i class="fas fa-file-pdf">   Generar PDF </i></a>
-            
+            <a href="/userreporte_xlsx" class="">  <i class="fas fa-file-pdf">   Generar XLSX </i></a>
             </div>
-            <form action="{{route ('formarmatriz.store')}}" method="POST">
+ 
+            <form class="enviandoF" action="{{route ('formarmatriz.store')}}" method="POST">
                 @csrf
             <div class="accordion accordion-secondary">
                
@@ -43,7 +44,7 @@
                                             {{-- insertion of items --}}
                                             <tr>
                                                 <th>Nº item</th>
-                                                <th>Descripcion</th>                                            
+                                                <th>Descripción</th>                                            
                                             </tr>
                                         </thead>
                         
@@ -51,11 +52,11 @@
                                         <tbody>
                                         {{-- Data extraction from database --}}
                                       @foreach ($debilidades as $key=> $debilidad)
-                                      <tr>
-                                       
+
+                                      <tr>  
                                         <td  id="tr_">
                                             <div class="td_flex">
-                                                <input class="check" type="checkbox" name="debilidades[]" value="{{$key}}"> 
+                                                <input class="check" type="checkbox" name="debilidades[]" value="{{$debilidad->id}}"> 
                                                 <div id="" class="IndexFaDebilidades circulo nro_item"></div>
                                             </div>
                                         </td>
@@ -97,7 +98,7 @@
                                             {{-- insertion of items --}}
                                             <tr>
                                                 <th>Nº item</th>
-                                                <th>Descripcion</th>                                            
+                                                <th>Descripción</th>                                            
                                             </tr>
                                         </thead>
                         
@@ -109,7 +110,7 @@
                                        
                                         <td  id="tr_">
                                         <div class="td_flex">
-                                            <input class="check" type="checkbox"  name="oportunidad[]" value="{{$key}}"> 
+                                            <input class="check" type="checkbox"  name="oportunidad[]" value="{{$oportunidad->id}}"> 
                                             <div id="" class="IndexDAFOOportunidades circulo nro_item"></div>
                                         </div>
                                         </td>
@@ -148,7 +149,7 @@
                                     {{-- insertion of items --}}
                                     <tr>
                                         <th>Nº item</th>
-                                        <th>Descripcion</th>                                            
+                                        <th>Descripción</th>                                            
                                     </tr>
                                 </thead>
                 
@@ -160,7 +161,7 @@
                                
                                 <td  id="tr_">
                                     <div class="td_flex">
-                                        <input class="check CheckboxFortaleza" type="checkbox"  name="fortalezas[]" value="{{$key}}" > 
+                                        <input class="check CheckboxFortaleza" type="checkbox"  name="fortalezas[]" value="{{$fortaleza->id}}" > 
                                         <div id="" class="IndexDAFOFortaleza nro_item circulo"></div>
                                     </div>
                                 </td>
@@ -197,19 +198,20 @@
                                     {{-- insertion of items --}}
                                     <tr>
                                         <th>Nº item</th>
-                                        <th>Descripcion</th>                                            
+                                        <th>Descripción</th>                                            
                                     </tr>
                                 </thead>
                 
                                 {{--database data subtraction --}}
                                 <tbody>
                                 {{-- Data extraction from database --}}
+                          
                               @foreach ($amenazas as $key=> $amenaza)
                               <tr class="tr_amenaza">
                                
                                 <td  id="tr_">
                                     <div class="td_flex">
-                                        <input class="check CheckboxAmenaza" type="checkbox"  name="amenazas[]" value="{{$key}}"> 
+                                        <input class="check CheckboxAmenaza" type="checkbox"  name="amenazas[]" value="{{$amenaza->id}}"> 
                                         <div id="" class="IndexDAFOAmenaza circulo nro_item"></div>
                                     </div>
                                 </td>
@@ -219,23 +221,43 @@
                               </tr>
                                   
                               @endforeach
-
-                            
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-                <button type="submit" class="btn btn-info float-right">Enviar</button>
-        </form>
             
-        </div>
+                <button type="submit" class="btn btn-info float-right" >Enviar</button>
+        </form>
+       
+    </div>
 
  
     </div>
 </div>
+
+
+<script>
+$('.enviandoF').submit(function(e) {
+   
+    //let x1= e.preventDefault();
+
+    let  checkbox_amenaza = $('input[name="amenazas[]"]');
+    let  checkbox_debilidades = $('input[name="debilidades[]"]');
+    let  checkbox_oportunidades = $('input[name="oportunidad[]"]');
+    let  checkbox_fortalezas = $('input[name="fortalezas[]"]');
+    //console.log(checkbox_fortalezas.val());
+
+
+   //console.log(checkbox_amenaza);
+
+
+
+})          
+
+   
+
+</script>
 
 @endsection

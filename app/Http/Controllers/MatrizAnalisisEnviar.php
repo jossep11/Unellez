@@ -25,12 +25,13 @@ class MatrizAnalisisEnviar extends Controller
         $fortalezas =Fortaleza::all();
         $amenazas = amenazas::all();
         $oportunidades= oportunidades::all();
-      
+
 
         return view('Evaluacion.UsuariosEv.MatrizAnalisisEnviar')->with('fortalezas', $fortalezas)
         ->with('debilidades', $debilidades)
         ->with('oportunidades', $oportunidades)
         ->with('amenazas', $amenazas);
+        
   
     }
 
@@ -52,7 +53,12 @@ class MatrizAnalisisEnviar extends Controller
      */
     public function store(Request $request)
     {
-        
+        $iduser=Auth::user()->id;
+
+       /**
+        $User_lastop = Operacion::all()
+        dd($User_lastop);
+         */
     $debilidades=$request->input('debilidades');
     $debilidadesArray=array();
     
@@ -66,7 +72,7 @@ class MatrizAnalisisEnviar extends Controller
         $B_Entrada = new Bandeja_Entrada();
         $Debilidad_selected= $debilidadesArray[]=$itemx;
         $B_Entrada->ID_Operacion=$Operacion->id;
-        $B_Entrada->ID_Debilidad=$Debilidad_selected+1;
+        $B_Entrada->ID_Debilidad=$itemx;
         $B_Entrada->save();    
 
         // $Operacion->id_user=$x;
@@ -81,7 +87,7 @@ class MatrizAnalisisEnviar extends Controller
         $B_Entrada = new Bandeja_Entrada();
         $Oportunidades_selected= $oportunidadesArray[]=$itemO;
         $B_Entrada->ID_Operacion=$Operacion->id;
-        $B_Entrada->ID_Oportunidades=$Oportunidades_selected+1;
+        $B_Entrada->ID_Oportunidades=$itemO;
         $B_Entrada->save();    
 
         // $Operacion->id_user=$x;
@@ -96,7 +102,7 @@ class MatrizAnalisisEnviar extends Controller
         $B_Entrada = new Bandeja_Entrada();
         $fortalezas_selected= $fortalezasArray[]=$itemF;
         $B_Entrada->ID_Operacion=$Operacion->id;
-        $B_Entrada->ID_Fortaleza=$fortalezas_selected+1;
+        $B_Entrada->ID_Fortaleza=$itemF;
         $B_Entrada->save();    
 
         // $Operacion->id_user=$x;
@@ -108,7 +114,7 @@ class MatrizAnalisisEnviar extends Controller
         $B_Entrada = new Bandeja_Entrada();
         $amenazas_selected= $amenazasArray[]=$itemA;
         $B_Entrada->ID_Operacion=$Operacion->id;
-        $B_Entrada->ID_Amenaza=$amenazas_selected+1;
+        $B_Entrada->ID_Amenaza=$itemA;
         $B_Entrada->save();    
 
         // $Operacion->id_user=$x;
@@ -118,9 +124,9 @@ class MatrizAnalisisEnviar extends Controller
      // echo $ID_Opera_Same = DB::table('bandeja__entradas')->select('ID_Fortaleza')->where('ID_Operacion', $x)->get();
      $operacion = DB::table('operacions')
      ->join('users', 'operacions.id_user', '=', 'users.id')->get();
-     echo $operacion;
+    // echo $operacion;
 
-     //return redirect('/formarmatriz');
+     return redirect('/formarmatriz');
 }
 
     /**
