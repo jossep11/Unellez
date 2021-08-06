@@ -240,13 +240,20 @@
 
 <script>
 $('.enviandoF').submit(function(e) {
-   
-    //let x1= e.preventDefault();
-
+   // e.preventDefault();
+ 
     let  checkbox_amenaza = $('input[name="amenazas[]"]');
     let  checkbox_debilidades = $('input[name="debilidades[]"]');
     let  checkbox_oportunidades = $('input[name="oportunidad[]"]');
     let  checkbox_fortalezas = $('input[name="fortalezas[]"]');
+
+    // si la cantidad de checkboxes "chequeados" es cero,
+    // entonces se evita que se envíe el formulario y se
+    // muestra una alerta al usuario
+
+
+    //let x1= e.preventDefault();
+
     //console.log(checkbox_fortalezas.val());
 
 

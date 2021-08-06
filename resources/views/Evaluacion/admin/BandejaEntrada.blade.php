@@ -19,7 +19,7 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                <table id="basic-datatables1" class="display table table-striped table-hover table-boder-radius serial">
                     <thead>
                        
                         <tr>

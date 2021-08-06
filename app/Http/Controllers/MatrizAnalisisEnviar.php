@@ -61,7 +61,22 @@ class MatrizAnalisisEnviar extends Controller
          */
     $debilidades=$request->input('debilidades');
     $debilidadesArray=array();
+
+    $oportunidades=$request->input('oportunidad');
+    $oportunidadesArray=array();
     
+  
+ 
+    $fortalezas=$request->input('fortalezas');
+    $fortalezasArray=array();
+
+    $amenazas=$request->input('amenazas');
+    $amenazasArray=array();
+    if(empty($debilidades) or empty($oportunidades) or empty($fortalezas) or empty($amenazas)){
+        echo '<script type="text/javascript"> alert ("Debe seleccionar una de cada una para poder enviar la información!"); window.history.back()</script>';
+    }
+    
+
     $Operacion=new Operacion();
     $Operacion->id_user=Auth::user()->id;
     $Operacion->save();
@@ -80,8 +95,7 @@ class MatrizAnalisisEnviar extends Controller
       
     }
     
-    $oportunidades=$request->input('oportunidad');
-    $oportunidadesArray=array();
+    
 
     foreach ($oportunidades as $key => $itemO) {
         $B_Entrada = new Bandeja_Entrada();
@@ -95,8 +109,7 @@ class MatrizAnalisisEnviar extends Controller
       }
 
 
-    $fortalezas=$request->input('fortalezas');
-    $fortalezasArray=array();
+    
 
     foreach ($fortalezas as $key => $itemF) {
         $B_Entrada = new Bandeja_Entrada();
@@ -108,8 +121,7 @@ class MatrizAnalisisEnviar extends Controller
         // $Operacion->id_user=$x;
        //}
       }
-      $amenazas=$request->input('amenazas');
-      $amenazasArray=array();
+      
       foreach ($amenazas as $key => $itemA) {
         $B_Entrada = new Bandeja_Entrada();
         $amenazas_selected= $amenazasArray[]=$itemA;
