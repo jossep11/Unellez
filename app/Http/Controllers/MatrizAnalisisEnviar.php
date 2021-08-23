@@ -55,10 +55,9 @@ class MatrizAnalisisEnviar extends Controller
     {
         $iduser=Auth::user()->id;
 
-       /**
-        $User_lastop = Operacion::all()
-        dd($User_lastop);
-         */
+      
+        $User_lastop = Operacion::all();
+     
     $debilidades=$request->input('debilidades');
     $debilidadesArray=array();
 
