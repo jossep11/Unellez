@@ -73,6 +73,7 @@ class MatrizAnalisisEnviar extends Controller
     $amenazasArray=array();
     if(empty($debilidades) or empty($oportunidades) or empty($fortalezas) or empty($amenazas)){
         echo '<script type="text/javascript"> alert ("Debe seleccionar una de cada una para poder enviar la información!"); window.history.back()</script>';
+        return;
     }
     
 
