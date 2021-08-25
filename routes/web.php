@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.Login_Estadistica');
 });
 
 Route::post('/addingfa', [EstrategiaFAController::class, 'store'])->name('add.estrategiafa');
