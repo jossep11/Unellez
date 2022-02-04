@@ -24,7 +24,7 @@
         </label><br>
 
         <label for="">
-            <input type="password" name="password" id="" placeholder="contraseñas...">
+            <input type="password" name="password" id="" placeholder="contraseña" autocomplete="on">
         </label><br>
         <button type="submit">
             Send

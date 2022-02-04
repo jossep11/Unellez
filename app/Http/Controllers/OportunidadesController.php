@@ -15,7 +15,7 @@ class OportunidadesController extends Controller
     public function index()
     {
         $oportunidades =oportunidades::all();
-        return view('Evaluacion.Oportunidades')->with('oportunidades', $oportunidades);
+        return view('Evaluacion.admin.Oportunidades')->with('oportunidades', $oportunidades);
     }
 
     /**
@@ -25,7 +25,7 @@ class OportunidadesController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Oportunidades.create');
+        
     }
 
     /**
@@ -39,7 +39,7 @@ class OportunidadesController extends Controller
         $oportunidades = new oportunidades();
         $oportunidades->description=$request->get('description');
         $oportunidades->save();
-        return redirect('/oportunidades');
+        return redirect('/matriz_analisis_admin');
     }
 
     /**
@@ -77,7 +77,7 @@ class OportunidadesController extends Controller
         $oportunidades->description=$request->get('description');
         $oportunidades->save();
 
-        return redirect('/oportunidades');
+        return redirect('/matriz_analisis_admin');
     }
 
     /**
@@ -90,6 +90,6 @@ class OportunidadesController extends Controller
     {
         $oportunidades = oportunidades::find($id);
         $oportunidades->delete();
-        return redirect('/oportunidades');
+        return redirect('/matriz_analisis_admin');
     }
 }

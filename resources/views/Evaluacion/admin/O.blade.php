@@ -1,3 +1,8 @@
+
+
+
+{{-- comment --}}
+
 @extends('Evaluacion.layout_evaluacion')
 
 @section('css')
@@ -10,7 +15,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1 id="IdentificadorIndex">Amenazas</h1>    
+            <h1 id="" class="IdentificadorIndex">Oportunidades</h1>    
             <!-- Button trigger modal -->
             <a href="#" data-toggle="modal" data-target="#modal1"> <i class="fas fa-plus"> Añadir nuevo</i></a>
             
@@ -64,18 +69,18 @@
                     {{--database data subtraction --}}
                     <tbody>
                     {{-- Data extraction from database --}}
-                        @foreach($amenazas as $amenaza)
+                        @foreach($oportunidades as $oportunidad)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="nro_item" class="circulo"> </div>
+                              <div id="" class="circulo nro_item"> </div>
                             </td>
                             
-                            <td> {{$amenaza->description}}</td>
+                            <td> {{$oportunidad->description}}</td>
 
                             <td>
-                                <form action="{{route ('amenazas.destroy', $amenaza->id)}}" method="POST">
+                                <form action="{{route ('oportunidades.destroy', $oportunidad->id)}}" method="POST">
                             	<div class="form-button-action">    
-                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editAmenaza{{$amenaza->id}}"><i class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editOportunidad{{$oportunidad->id}}"><i class="fa fa-edit"></i></a>
                                     @csrf
                                     @method('DELETE')
                                 <button class="btn btn-link btn-danger" title="Eliminar" type="submit" >
@@ -88,8 +93,8 @@
                             </td>
 
             <!-- Modal data insertion  -->
-            {{-- to pass it the item that's gonna be changed have to send $amenaza-> --}}
-            <div class="modal fade" id="editAmenaza{{$amenaza->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            {{-- to pass it the item that's gonna be changed have to send $oportunidad-> --}}
+            <div class="modal fade" id="editOportunidad{{$oportunidad->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -99,18 +104,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        {{-- with amenaza.update I indicate where it's gonna be the change Jp--}}
-                        {{-- $amenaza is the reference the item that it's gonna be changed Jp--}}            
-                        <form action="{{route('amenazas.update', $amenaza)}}"  method="POST">
+                        {{-- with oportunidad.update I indicate where it's gonna be the change Jp--}}
+                        {{-- $oportunidad is the reference the item that it's gonna be changed Jp--}}            
+                        <form action="{{route('oportunidades.update', $oportunidad)}}"  method="POST">
                             {{ csrf_field() }} {{   method_field('PUT')   }}
 
                             <div class="campo">
-                            <textarea class="form-control1" id="message-text" name="description" >{{$amenaza->description}}</textarea>
+                            <textarea class="form-control1" id="message-text" name="description" >{{$oportunidad->description}}</textarea>
                             </div>
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit"{{$amenaza->id}} class="btn btn-primary">Save changes</button>
+                                <button type="submit"{{$oportunidad->id}} class="btn btn-primary">Save changes</button>
                             </div>
 
                         </form>

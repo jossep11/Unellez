@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1 id="IdentificadorIndex">Oportunidades</h1>    
+            <h1 id="" class="IdentificadorIndex">Debilidades</h1>    
             <!-- Button trigger modal -->
             <a href="#" data-toggle="modal" data-target="#modal1"> <i class="fas fa-plus"> Añadir nuevo</i></a>
             
@@ -58,24 +58,24 @@
                             <th>Nº item</th>
                             <th>Descripcion</th>
                             <th>Acciones</th>
+                            
                         </tr>
                     </thead>
     
                     {{--database data subtraction --}}
                     <tbody>
                     {{-- Data extraction from database --}}
-                        @foreach($oportunidades as $oportunidad)
+                        @foreach($debilidades as $debilidad)
                         <tr>
                            <td class="nro_item_center" id="tr_">
-                              <div id="nro_item" class="circulo"> </div>
+                              <div id="" class="circulo nro_item"> </div>
                             </td>
                             
-                            <td> {{$oportunidad->description}}</td>
-
+                            <td> {{$debilidad->description}}</td>
                             <td>
-                                <form action="{{route ('oportunidades.destroy', $oportunidad->id)}}" method="POST">
+                                <form action="{{route ('debilidades.destroy', $debilidad->id)}}" method="POST">
                             	<div class="form-button-action">    
-                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editOportunidad{{$oportunidad->id}}"><i class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editDebilidad{{$debilidad->id}}"><i class="fa fa-edit"></i></a>
                                     @csrf
                                     @method('DELETE')
                                 <button class="btn btn-link btn-danger" title="Eliminar" type="submit" >
@@ -87,9 +87,9 @@
                 
                             </td>
 
-            <!-- Modal data insertion  -->
-            {{-- to pass it the item that's gonna be changed have to send $oportunidad-> --}}
-            <div class="modal fade" id="editOportunidad{{$oportunidad->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <!-- Modal data insertion edit  -->
+            {{-- to pass it the item that's gonna be changed have to send $debilidad-> --}}
+            <div class="modal fade" id="editDebilidad{{$debilidad->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -99,18 +99,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        {{-- with oportunidad.update I indicate where it's gonna be the change Jp--}}
-                        {{-- $oportunidad is the reference the item that it's gonna be changed Jp--}}            
-                        <form action="{{route('oportunidades.update', $oportunidad)}}"  method="POST">
+                        {{-- with debilidad.update I indicate where it's gonna be the change Jp--}}
+                        {{-- $debilidad is the reference the item that it's gonna be changed Jp--}}            
+                        <form action="{{route('debilidades.update', $debilidad)}}"  method="POST">
                             {{ csrf_field() }} {{   method_field('PUT')   }}
 
                             <div class="campo">
-                            <textarea class="form-control1" id="message-text" name="description" >{{$oportunidad->description}}</textarea>
+                            <textarea class="form-control1" id="message-text" name="description" >{{$debilidad->description}}</textarea>
                             </div>
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit"{{$oportunidad->id}} class="btn btn-primary">Save changes</button>
+                                <button type="submit"{{$debilidad->id}} class="btn btn-primary">Save changes</button>
                             </div>
 
                         </form>

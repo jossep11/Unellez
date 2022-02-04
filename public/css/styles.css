@@ -6,7 +6,10 @@
 .card {
     /*----margin from top----*/
     margin-top: 2rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
 }
+
 
 /*----button and label division----*/
 .barra {
@@ -140,4 +143,72 @@ column on Fa can grow without any problem ----*/
 
 #FaFortaleza div{
     margin-bottom: .4rem;
+}
+
+.thresponsive{
+    width: 10%;
+}
+
+.avatar-sm{
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+.logout{
+    
+    padding: 0;
+    font-size: 2rem;
+    color: white;
+}
+
+.fa-user{
+    font-size: 2rem;
+}
+.logo span{
+   
+    color: #ffffff;
+}
+
+
+h1{
+    font-size: 24px;
+}
+h2{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+.colun10{
+    width: 45%;
+}
+
+.fa-arrow-alt-circle-down{
+    color: rgb(0, 162, 255);
+    font-size: 18px;
+}
+.btnz{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.barra___{
+    display: flex;
+}
+
+.form2x{
+    margin-left: 1rem;
+}
+.fa-times{
+    color:rgb(252, 40, 40);
+    font-size: 18px;
+
 }

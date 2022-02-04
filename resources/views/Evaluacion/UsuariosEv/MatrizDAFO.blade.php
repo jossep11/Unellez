@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <div class="barra">
-            <h1 id="IdentificadorIndex">MatrizDAFO</h1>    
+            <h1 >Matriz de Análisis</h1>    
 
             <a href="#" class="btn_general_pdf"> <i class="fas fa-file-pdf">   Generar PDF </i></a>
             
@@ -19,6 +19,8 @@
             <div class="accordion accordion-secondary">
                
                {{-- cardtag Debilidades--}}
+
+               
                 <div class="card">
                     <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <div class="span-icon">
@@ -29,18 +31,18 @@
                         </div>
                         <div class="span-mode"></i></div>
                     </div>
+
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                       
                        
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                                    <table id="basic-datatables1" class="display table table-striped table-hover table-boder-radius serial">
                                         <thead>
                                             {{-- insertion of items --}}
                                             <tr>
                                                 <th>Nº item</th>
-                                                <th>Descripcion</th>                                            
+                                                <th>Descripción</th>                                            
                                             </tr>
                                         </thead>
                         
@@ -53,7 +55,7 @@
                                         <td  id="tr_">
                                             <div class="td_flex">
                                                 <input class="check" type="checkbox"> 
-                                                <div id="nro_item" class="circulo"></div>
+                                                <div id="" class="IndexFaDebilidades circulo nro_item"></div>
                                             </div>
                                         </td>
 
@@ -71,6 +73,7 @@
                         </div>
                     </div>
                 </div>
+                
 
                {{-- cardtag Oportunidades --}}
                 <div class="card">
@@ -83,17 +86,18 @@
                         </div>
                         <div class="span-mode"></div>
                     </div>
+
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                                    <table id="basic-datatables2" class="display table table-striped table-hover table-boder-radius serial">
                                         <thead>
                                             {{-- insertion of items --}}
                                             <tr>
                                                 <th>Nº item</th>
-                                                <th>Descripcion</th>                                            
+                                                <th>Descripción</th>                                            
                                             </tr>
                                         </thead>
                         
@@ -106,7 +110,7 @@
                                         <td  id="tr_">
                                         <div class="td_flex">
                                             <input class="check" type="checkbox"> 
-                                            <div id="nro_item" class="circulo"></div>
+                                            <div id="" class="IndexDAFOOportunidades circulo nro_item"></div>
                                         </div>
                                         </td>
 
@@ -122,8 +126,7 @@
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
                 </div>
 
                 {{-- cardtag Fortalezas --}}
@@ -139,12 +142,12 @@
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
-                            <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                            <table id="basic-datatables3" class="display table table-striped table-hover table-boder-radius serial">
                                 <thead>
                                     {{-- insertion of items --}}
                                     <tr>
                                         <th>Nº item</th>
-                                        <th>Descripcion</th>                                            
+                                        <th>Descripción</th>                                            
                                     </tr>
                                 </thead>
                 
@@ -157,7 +160,7 @@
                                 <td  id="tr_">
                                     <div class="td_flex">
                                         <input class="check CheckboxFortaleza" type="checkbox"> 
-                                        <div id="nro_item" class="circulo"></div>
+                                        <div id="" class="IndexDAFOFortaleza nro_item circulo"></div>
                                     </div>
                                 </td>
 
@@ -188,12 +191,12 @@
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
-                            <table id="basic-datatables" class="display table table-striped table-hover table-boder-radius serial">
+                            <table id="basic-datatables4" class="display table table-striped table-hover table-boder-radius serial">
                                 <thead>
                                     {{-- insertion of items --}}
                                     <tr>
                                         <th>Nº item</th>
-                                        <th>Descripcion</th>                                            
+                                        <th>Descripción</th>                                            
                                     </tr>
                                 </thead>
                 
@@ -206,7 +209,7 @@
                                 <td  id="tr_">
                                     <div class="td_flex">
                                         <input class="check CheckboxAmenaza" type="checkbox"> 
-                                        <div id="nro_item" class="circulo"></div>
+                                        <div id="" class="IndexDAFOAmenaza circulo nro_item"></div>
                                     </div>
                                 </td>
 
@@ -224,12 +227,11 @@
                 </div>
 
                 {{-- Fa --}}
+
+{{-- 
                 
                 @include('Evaluacion.UsuariosEv.Fa')
-               
-                
-              
-
+            
                 <div class="card">
                     <div class="card-header collapsed" id="headingSix" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
                         <div class="span-icon">
@@ -283,7 +285,7 @@
                     </div>
                 </div>
                 
-
+comment --}}
 
 
             </div>
