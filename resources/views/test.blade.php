@@ -8,7 +8,7 @@
 
     <script src="{{asset ('js/plugin/webfont/webfont.min.js')}}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+  
     <script>
         WebFont.load({
             google: {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fortaleza;
+use App\Models\amenazas;
 
 class FortalezaController extends Controller
 {
@@ -15,7 +16,7 @@ class FortalezaController extends Controller
     public function index()
     {
         $fortalezas =Fortaleza::all();
-        return view('Evaluacion.Fortaleza')->with('fortalezas', $fortalezas);
+        return view('Evaluacion.admin.Fortaleza')->with('fortalezas', $fortalezas);
         //
     }
 
@@ -26,7 +27,7 @@ class FortalezaController extends Controller
      */
     public function create()
     {
-        return view('Evaluacion.Fortalezas.create');
+        
 
     }
 
@@ -39,10 +40,19 @@ class FortalezaController extends Controller
     public function store(Request $request)
     {
         /* Data insertion to the database*/ 
+        //$id_descripcion= amenazas::where('id', 1)->get();
+
+        //$id_descripcion= amenazas::where('id', 1)->get('description');
+        //$id_descripcion= amenazas::where('id', 1)->first();
+        
+       // $id_descripcion= amenazas::All();
+        
+        
         $fortalezas = new Fortaleza();
+
         $fortalezas->description=$request->get('description');
         $fortalezas->save();
-        return redirect('/fortaleza');
+        return redirect('/matriz_analisis_admin');
     }
 
     /**
@@ -80,7 +90,7 @@ class FortalezaController extends Controller
         $fortaleza->description=$request->get('description');
         $fortaleza->save();
 
-        return redirect('/fortaleza');
+        return redirect('/matriz_analisis_admin');
 
     }
 
@@ -94,6 +104,6 @@ class FortalezaController extends Controller
     {
         $fortaleza = Fortaleza::find($id);
         $fortaleza->delete();
-        return redirect('/fortaleza');
+        return redirect('/matriz_analisis_admin');
     }
 }

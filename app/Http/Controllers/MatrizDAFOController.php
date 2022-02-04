@@ -24,13 +24,13 @@ class MatrizDAFOController extends Controller
         $fortalezas =Fortaleza::all();
         $amenazas = amenazas::all();
         $oportunidades= oportunidades::all();
+        $EstrategiaFa = EstrategiaFa::all();
 
         return view('Evaluacion.UsuariosEv.MatrizDAFO')->with('fortalezas', $fortalezas)
         ->with('debilidades', $debilidades)
         ->with('oportunidades', $oportunidades)
-        ->with('amenazas', $amenazas);
-
-       
+        ->with('amenazas', $amenazas)
+        ->with('EstrategiaFa', $EstrategiaFa);       
     }
 
     /**
@@ -51,13 +51,7 @@ class MatrizDAFOController extends Controller
      */
     public function store(Request $request)
     {
-        $EstrategiaFa = new EstrategiaFa();
-        $EstrategiaFa->Fortalezas=$request->get('FA_Fortaleza');
-        $EstrategiaFa->Amenazas=$request->get('FA_Amenaza');
-        $EstrategiaFa->Description=$request->get('Description');
-        $EstrategiaFa->save();
-       // return response()->json($EstrategiaFa);
-        return redirect('/matrizdafo');
+    //  return redirect('/matrizdafo');
     }
 
     /**
@@ -102,6 +96,6 @@ class MatrizDAFOController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
     }
 }
